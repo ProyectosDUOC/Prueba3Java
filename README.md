@@ -1,8 +1,8 @@
-Se solicita desarrollar un proyecto bajo la modalidad de “entrega por encargo”, según las consideraciones de diseño que serán enunciadas más adelante. Para el desarrollo del proyecto, usted puede formar un grupo de trabajo de 2 a 3 personas. 
+###Se solicita desarrollar un proyecto bajo la modalidad de “entrega por encargo”, según las consideraciones de diseño que serán #enunciadas más adelante. Para el desarrollo del proyecto, usted puede formar un grupo de trabajo de 2 a 3 personas. 
 Para finalizar el proceso, cada grupo deberá realizar una presentación de máximo 10 minutos de duración, en donde se debe realizar una demostración de su sistema en vivo y una descripción técnica de los principales componentes. 
 Los entregables que deben acompañar la entrega formal son los siguientes: 
-•	Presentación del sistema
-•	Código fuente del proyecto
+!•	Presentación del sistema
+<!>•	Código fuente del proyecto
 El Encargo debe ser entregado dos semanas después de la entrega de la evaluación. Entregas posteriores, incompletas, con problemas de compilación o atrasadas no serán revisadas y se calificará con nota 1.0.  
 El tema del proyecto debe ser único en la sección de la asignatura.
 Además, se debe considerar un modelo de datos, el cual tenga un mínimo de 4 tablas.
