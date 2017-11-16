@@ -14,14 +14,14 @@
 ## En relación al producto entregado, el arquitecto ha solicitado que tenga presente las siguientes consideraciones de diseño:
 *	Utilizar JSP como Vista 
 *	Utilizar JSTL + EL para el despliegue de información
--	Utilizar Servlet como Controladores 
-+	Utilizar Clases Java para el Modelo  
-+	Control de Excepciones
-+	Utilizar el Patrón DAO para el acceso a datos 
-+	Utilizar API de Log para registrar la actividad del usuario y excepciones ocurridas en el sistema
-+	Pool de conexiones
-+	Base de datos a utilizar Mysql
-+	Puede opcionalmente utilizar algún framework u otra tecnología vista en clases
+*	Utilizar Servlet como Controladores 
+*	Utilizar Clases Java para el Modelo  
+*	Control de Excepciones
+*	Utilizar el Patrón DAO para el acceso a datos 
+*	Utilizar API de Log para registrar la actividad del usuario y excepciones ocurridas en el sistema
+*	Pool de conexiones
+*	Base de datos a utilizar Mysql
+*	Puede opcionalmente utilizar algún framework u otra tecnología vista en clases
 
 La revisión del programa estará separada en 2 partes, siendo la primera contra entrega. Esto significa que el grupo de estudiantes deberá ejecutar la aplicación y responder a las preguntas que el docente realice, donde el no responder a las preguntas indicará que el estudiante no realizó el programa, siendo evaluado con la nota mínima.
 
@@ -35,15 +35,15 @@ En un estudio realizado, se envió correos a 100  alumnos preguntando el por qu�
 ### Tabla 1. Problemas de inasistencia
 Problema	Cantidad de alumnos
 *       Económicos	15
-+       Salud	15
-+       Laboral	15
-+       Trámites	5
-+       No entiendo la materia	10
-+       No le entiendo al profesor	10
-+       Me quedé dormido	10
-+       Problemas familiares varios	5
-+       Problema con el transporte	10
-+       Actividad extra programática del instituto 	5
+*       Salud	15
+*       Laboral	15
+*       Trámites	5
+*       No entiendo la materia	10
+*       No le entiendo al profesor	10
+*       Me quedé dormido	10
+*       Problemas familiares varios	5
+*       Problema con el transporte	10
+*       Actividad extra programática del instituto 	5
 
     
 # Requerimientos Funcionales
@@ -64,8 +64,8 @@ Problema	Cantidad de alumnos
 
 # Requerimientos No Funcionales
 * RNF1	El sistema debe ser WEB.
-- RNF2	IDE de desarrollo NetBeans.
-- RNF3	Motor de base de datos MySql
-- RNF4	Página principal  y clara navegación entre páginas.
-- RNF5	Diseño de páginas con Framework materialize.
-- RNF6	Reportes en pantalla y en PDF.
+* RNF2	IDE de desarrollo NetBeans.
+* RNF3	Motor de base de datos MySql
+* RNF4	Página principal  y clara navegación entre páginas.
+* RNF5	Diseño de páginas con Framework materialize.
+* RNF6	Reportes en pantalla y en PDF.
