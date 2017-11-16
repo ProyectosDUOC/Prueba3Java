@@ -7,9 +7,9 @@
 *	Presentación del sistema
 *	Código fuente del proyecto
 
-## El Encargo debe ser entregado dos semanas después de la entrega de la evaluación. Entregas posteriores, incompletas, con problemas de compilación o atrasadas no serán revisadas y se calificará con nota 1.0.  
-## El tema del proyecto debe ser único en la sección de la asignatura.
-## Además, se debe considerar un modelo de datos, el cual tenga un mínimo de **4 tablas**.
+ El Encargo debe ser entregado dos semanas después de la entrega de la evaluación. Entregas posteriores, incompletas, con problemas de compilación o atrasadas no serán revisadas y se calificará con nota 1.0.  
+ El tema del proyecto debe ser único en la sección de la asignatura.
+ Además, se debe considerar un modelo de datos, el cual tenga un mínimo de **4 tablas**.
 
 ## En relación al producto entregado, el arquitecto ha solicitado que tenga presente las siguientes consideraciones de diseño:
 *	Utilizar JSP como Vista 
@@ -23,17 +23,17 @@
 +	Base de datos a utilizar Mysql
 +	Puede opcionalmente utilizar algún framework u otra tecnología vista en clases
 
-## La revisión del programa estará separada en 2 partes, siendo la primera contra entrega. Esto significa que el grupo de estudiantes deberá ejecutar la aplicación y responder a las preguntas que el docente realice, donde el no responder a las preguntas indicará que el estudiante no realizó el programa, siendo evaluado con la nota mínima.
+La revisión del programa estará separada en 2 partes, siendo la primera contra entrega. Esto significa que el grupo de estudiantes deberá ejecutar la aplicación y responder a las preguntas que el docente realice, donde el no responder a las preguntas indicará que el estudiante no realizó el programa, siendo evaluado con la nota mínima.
 
 # En la segunda parte, el docente revisará que el programa cumpla con lo solicitado. 
-## Problema:
+### Problema:
 
 El instituto “Los Especialistas”, han determinado que muchos de sus alumnos abandonan los ramos y en muchos casos, finalmente, la carrera.  Preocupados por esto han decidido acercarse a sus alumnos y averiguar el “por qué” de sus inasistencias, desde manera, mediante una alerta temprana, tratar de apoyar a los alumnos a avanzar en sus ramos y carreras.
 
 En un estudio realizado, se envió correos a 100  alumnos preguntando el por qué de sus inasistencias y este fue el resultado:
 
 ### Tabla 1. Problemas de inasistencia
-### Problema	Cantidad de alumnos
+Problema	Cantidad de alumnos
 *       Económicos	15
 +       Salud	15
 +       Laboral	15
