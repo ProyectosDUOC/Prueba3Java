@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A50F10AD-89A6-334B-167C-A40EA429B091" name="Estado_inasistencia">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:20:25 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_estadoI" id="512333E7-36A8-1280-10F4-B2B22C85AAD0">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:21:18 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre_estadoI" id="246CB0FF-1B10-9358-3294-003EE62C9FFC">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:21:18 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="24B39FC6-316F-92B5-B7EF-00709F883CD0" name="Estado_inasistencia_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:21:26 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="512333E7-36A8-1280-10F4-B2B22C85AAD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

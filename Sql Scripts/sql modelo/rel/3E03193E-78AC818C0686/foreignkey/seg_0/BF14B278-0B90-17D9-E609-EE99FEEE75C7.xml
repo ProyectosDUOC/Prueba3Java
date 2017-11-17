@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF14B278-0B90-17D9-E609-EE99FEEE75C7" containerWithKeyObject="DFB67F2A-5CAF-FC68-0278-BC3AC831906F" localFKIndex="A8BD5E83-5419-DE8E-20E2-43F764B82EBE" name="Justificacion_Inasistencia_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:30:43 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<referredTableLongName>Inasistencia</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F9F1D33B-D9B7-8C33-8C06-FFD2B2BB3569</referredTableID>
+<keyObject>CFEB58A2-4E65-6BFA-C0A4-B6B3024A7645</keyObject>
+<referredKeyID>CFEB58A2-4E65-6BFA-C0A4-B6B3024A7645</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_inasistencia</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DFB67F2A-5CAF-FC68-0278-BC3AC831906F" name="Justificacion">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:24:20 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_18</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Inasistencia_id_inasistencia" id="8AFB66C5-EF17-B9BF-37B8-11F26CC4347F">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:30:43 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF14B278-0B90-17D9-E609-EE99FEEE75C7" referredColumn="6066540F-DFA7-523E-86AA-3D19F0EAF31D"/>
+</associations>
+</Column>
+<Column name="fecha_envio" id="BAD2BAB3-C66C-96CA-B6CE-FC1D83CE6F84">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:24:58 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_motivo" id="74759C6D-9DC3-76DC-BBA4-53EB101BF627">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:25:05 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C134CDF6-6F4D-7A06-CA8E-EF15D877E235" referredColumn="51BCFE47-CEF9-72CE-A46D-ADE28DD7599E"/>
+</associations>
+</Column>
+<Column name="glosa" id="6C8F5AE8-7D41-2C6C-C89F-F07FEA882F20">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:24:58 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_estadoJ" id="D49CD4B0-B630-FA5F-04A5-0FAEAE53C3A2">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:39:31 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F7EE82C8-1F05-C917-9FE3-5BD232654A67" referredColumn="5DBBAC8F-BBB3-8B6C-FE7C-4F56EF29F3D1"/>
+</associations>
+</Column>
+<Column name="id_estadoC" id="7E76A8B6-09F8-79AC-CDD7-2ECD75F778D6">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:53 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A54E9D3A-3D4D-DA3C-1638-331FADF158BE" referredColumn="61FDEABE-A6CC-7535-A3B0-5B081D741299"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3C686C9-1EB8-5548-1F3D-F6D428EE48AD" name="Justificacion_Motivo_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:25:05 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74759C6D-9DC3-76DC-BBA4-53EB101BF627"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A8BD5E83-5419-DE8E-20E2-43F764B82EBE" name="Justificacion_Inasistencia_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:30:43 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8AFB66C5-EF17-B9BF-37B8-11F26CC4347F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E071A67D-544C-2347-BFD1-AA782DC2D432" name="Justificacion_Estado_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:39:31 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D49CD4B0-B630-FA5F-04A5-0FAEAE53C3A2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="056A6215-A7CD-D578-0B5E-F4211B1A7103" name="Justificacion_correo_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:53 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E76A8B6-09F8-79AC-CDD7-2ECD75F778D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

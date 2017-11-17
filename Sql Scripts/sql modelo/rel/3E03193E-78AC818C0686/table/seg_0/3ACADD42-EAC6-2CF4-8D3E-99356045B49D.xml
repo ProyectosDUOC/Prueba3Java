@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3ACADD42-EAC6-2CF4-8D3E-99356045B49D" name="Director">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rut_director" id="EFF0EED7-36E5-058B-A45E-5E49EA2C1D1C">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dv_director" id="1654A220-6E48-F7CA-384D-8E2ECEBE4047">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pnombre" id="D84850E1-E83A-97B9-668B-1A1E6DFD54C8">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="snombre" id="AC893B5F-F259-1C92-4268-1CA05587E955">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="appaterno" id="C534E46F-FC64-7349-7B3D-D51F074A6C3B">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apmaterno" id="DE61DE97-FF5A-D0CB-75CF-3EF983E828AE">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="9718C7A0-0483-42DA-2527-F7A881CBA123">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:52:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22EDC5F3-FDC2-6EC6-4D31-D71DA3783039" name="Director_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:53:28 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFF0EED7-36E5-058B-A45E-5E49EA2C1D1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F7EE82C8-1F05-C917-9FE3-5BD232654A67" containerWithKeyObject="DFB67F2A-5CAF-FC68-0278-BC3AC831906F" localFKIndex="E071A67D-544C-2347-BFD1-AA782DC2D432" name="Justificacion_Estado_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:39:31 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<referredTableLongName>Estado_justificativo</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E205896B-BB0D-C2E3-A489-30C5843F61F0</referredTableID>
+<keyObject>2E9F6B3E-3057-9A5F-D584-B55AE616B637</keyObject>
+<referredKeyID>2E9F6B3E-3057-9A5F-D584-B55AE616B637</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_estadoJ</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

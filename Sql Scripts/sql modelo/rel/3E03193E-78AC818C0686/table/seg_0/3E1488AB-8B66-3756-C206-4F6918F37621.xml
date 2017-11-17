@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3E1488AB-8B66-3756-C206-4F6918F37621" name="Estado_correo">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:20 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_21</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_estadoC" id="61FDEABE-A6CC-7535-A3B0-5B081D741299">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:49 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre_estadoC" id="8B435C0E-769E-F3EE-05AC-C09D79FC608B">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:49 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="28CC3D34-DD5E-FB85-2C35-556BA6409877" name="Estado_correo_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:40:49 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61FDEABE-A6CC-7535-A3B0-5B081D741299"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

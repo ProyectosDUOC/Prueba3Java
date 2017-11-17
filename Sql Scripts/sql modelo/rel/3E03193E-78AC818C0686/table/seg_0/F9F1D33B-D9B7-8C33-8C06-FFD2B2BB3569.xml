@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F9F1D33B-D9B7-8C33-8C06-FFD2B2BB3569" name="Inasistencia">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:25:28 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_19</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_inasistencia" id="6066540F-DFA7-523E-86AA-3D19F0EAF31D">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:27:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rut_alumno" id="BE88E63E-9B44-F22C-2083-158F02AD0658">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:26:37 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC07EC21-2161-E738-9F02-908870009BD5" referredColumn="15BE368F-D6DF-C469-DEF7-72D9FB27B301"/>
+</associations>
+</Column>
+<Column name="id_seccion" id="DCB77EBD-F575-E4CC-3906-EE174393C3EB">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:27:16 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A88B7CF-AB83-9FCF-D687-9E9544DB9B8E" referredColumn="DD79E494-CF6B-3E75-FCA6-89B1781B0A6E"/>
+</associations>
+</Column>
+<Column name="fecha" id="9BDF842F-2D72-4D27-B1E8-A5BA0B94CC7E">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:25:50 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_estadoI" id="B7D14BC4-1E2F-4F3F-B17A-374909B4CDAE">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:26:00 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="69479604-B1F0-C5BD-56C1-01B317A52FD9" referredColumn="512333E7-36A8-1280-10F4-B2B22C85AAD0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CFEB58A2-4E65-6BFA-C0A4-B6B3024A7645" name="Inasistencia_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:27:54 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6066540F-DFA7-523E-86AA-3D19F0EAF31D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC13B5A6-2810-396E-FAA0-C3AB80E6BB67" name="Inasistencia_Estado_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:26:00 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7D14BC4-1E2F-4F3F-B17A-374909B4CDAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="81DDC1DE-B8CC-685C-D14C-267705778AF4" name="Inasistencia_Alumno_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:26:37 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE88E63E-9B44-F22C-2083-158F02AD0658"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90F6B21E-7EB4-95A2-004D-1E45F29367F6" name="Inasistencia_Seccion_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:27:16 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DCB77EBD-F575-E4CC-3906-EE174393C3EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

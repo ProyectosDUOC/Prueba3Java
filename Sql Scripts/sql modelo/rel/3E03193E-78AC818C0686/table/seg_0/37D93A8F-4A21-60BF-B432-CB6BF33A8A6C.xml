@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="37D93A8F-4A21-60BF-B432-CB6BF33A8A6C" name="Control_usuario">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:54:10 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_control" id="611DDDE2-3C5A-AF4F-3568-007344D73ECF">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:56:17 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="F9A51BCE-6469-278E-9FBE-E45D04957C09">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:56:17 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clave" id="20808513-D777-1DD8-BC14-AB93453E3936">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:56:17 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rut_usuario" id="DD974D55-784C-638F-CB0A-9EFAD5AE8B9C">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:56:17 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_tipo_usuario" id="91772A0A-07CB-984E-C236-43BCD1E11644">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:59:01 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FE52E502-14C6-6F4D-4BC3-91F5D3A10726" referredColumn="8F661090-0E29-42FC-695B-ED1EFBC3B6CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D39361AF-187F-1A1E-546D-B24E176E12EC" name="Control_Usuario_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:56:17 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="611DDDE2-3C5A-AF4F-3568-007344D73ECF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79B22639-0117-3A68-BD85-D9378BE60711" name="Cous_Tius_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 17:59:01 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="91772A0A-07CB-984E-C236-43BCD1E11644"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

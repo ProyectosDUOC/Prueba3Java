@@ -11,28 +11,27 @@ CREATE TABLE alumno (
     appaterno    VARCHAR(30),
     apmaterno    VARCHAR(30),
     email        VARCHAR(30),
-    id_carrera   INT NOT NULL
+    id_carrera   VARCHAR(30) NOT NULL
 );
 
 ALTER TABLE alumno ADD CONSTRAINT alumno_pk PRIMARY KEY ( rut_alumno );
 
 CREATE TABLE carrera (
-    id_carrera       INT NOT NULL,
-    nombre_carrera   VARCHAR(30),
+    id_carrera       VARCHAR(30) NOT NULL,
+    nombre_carrera   VARCHAR(300),
     rut_director     INT NOT NULL
 );
 
 ALTER TABLE carrera ADD CONSTRAINT carrera_pk PRIMARY KEY ( id_carrera );
 
 CREATE TABLE control_usuario (
-    id_control        INT NOT NULL,
+    id_control        INT NOT NULL AUTO_INCREMENT,
     usuario           VARCHAR(30),
     clave             VARCHAR(30),
     rut_usuario       INT,
-    id_tipo_usuario   INT NOT NULL
+    id_tipo_usuario   INT NOT NULL,
+    PRIMARY KEY (id_control)
 );
-
-ALTER TABLE control_usuario ADD CONSTRAINT control_usuario_pk PRIMARY KEY ( id_control );
 
 CREATE TABLE coordinador (
     rut_coordinador   INT NOT NULL,
@@ -47,7 +46,7 @@ CREATE TABLE coordinador (
 ALTER TABLE coordinador ADD CONSTRAINT coordinador_pk PRIMARY KEY ( rut_coordinador );
 
 CREATE TABLE detalle_seccion (
-    id_seccion   INT NOT NULL,
+    id_seccion   VARCHAR(30) NOT NULL,
     rut_alumno   INT NOT NULL,
     anio         INT,
     semestre     INT
@@ -103,7 +102,7 @@ ALTER TABLE estado_justificativo ADD CONSTRAINT estado_justificativo_pk PRIMARY 
 CREATE TABLE inasistencia (
     id_inasistencia   INT NOT NULL AUTO_INCREMENT,
     rut_alumno        INT NOT NULL,
-    id_seccion        INT NOT NULL,
+    id_seccion    VARCHAR(30) NOT NULL,
     fecha             DATE,
     id_estadoi        INT NOT NULL,
     PRIMARY KEY (id_inasistencia)
@@ -127,13 +126,13 @@ ALTER TABLE motivo ADD CONSTRAINT motivo_pk PRIMARY KEY ( id_motivo );
 
 CREATE TABLE ramo (
     id_ramo       VARCHAR(30) NOT NULL,
-    nombre_ramo   VARCHAR(30)
+    nombre_ramo   VARCHAR(100)
 );
 
 ALTER TABLE ramo ADD CONSTRAINT ramo_pk PRIMARY KEY ( id_ramo );
 
 CREATE TABLE seccion (
-    id_seccion    INT NOT NULL,
+    id_seccion    VARCHAR(30) NOT NULL,
     id_ramo       VARCHAR(30) NOT NULL,
     rut_docente   INT NOT NULL
 );

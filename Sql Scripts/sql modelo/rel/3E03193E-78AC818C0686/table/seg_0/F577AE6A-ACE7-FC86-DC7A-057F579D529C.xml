@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F577AE6A-ACE7-FC86-DC7A-057F579D529C" name="Seccion">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:14:39 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_seccion" id="DD79E494-CF6B-3E75-FCA6-89B1781B0A6E">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:14:57 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_ramo" id="14295269-C0E1-C8C0-1D94-67A5AA46805C">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:15:03 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="52F8EF4C-A7C8-C0B5-17F3-F8279A4E8BFE" referredColumn="BF22B79B-60C4-F6B8-280B-6BC5E37C771B"/>
+</associations>
+</Column>
+<Column name="rut_docente" id="A5450EE4-8CA9-1FA1-B184-ED8124A08FB6">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:15:11 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80DC041F-B503-32AF-D004-7A986121308C" referredColumn="9A4D6E33-2567-7664-CFE1-320C8360056F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8D514780-3513-4B40-9DD5-DA7210006FE2" name="Seccion_PK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:14:57 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD79E494-CF6B-3E75-FCA6-89B1781B0A6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC325931-C62D-AD98-51C7-C8DBF9D741D4" name="Seccion_Ramo_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:15:03 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14295269-C0E1-C8C0-1D94-67A5AA46805C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D58200B0-BE13-066A-E6C9-E7432313714D" name="Seccion_Docente_FK">
+<createdBy>benja</createdBy>
+<createdTime>2017-11-17 18:15:11 UTC</createdTime>
+<ownerDesignName>sql modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5450EE4-8CA9-1FA1-B184-ED8124A08FB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
