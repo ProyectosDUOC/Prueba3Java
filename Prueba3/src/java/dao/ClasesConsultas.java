@@ -190,6 +190,7 @@ public class ClasesConsultas implements GeneralClasesConsultas {
     }
 
     private ArrayList<TipoUsuario> arrayTipoUsarios = new ArrayList<>();
+
     @Override
     public ArrayList mostrarTipoUsuario() {
         try {
@@ -226,13 +227,13 @@ public class ClasesConsultas implements GeneralClasesConsultas {
             ResultSet results = statement.executeQuery(query);
             int id1;
             String nombre;
-           /*  id_tipo_usuario   INT NOT NULL,
+            /*  id_tipo_usuario   INT NOT NULL,
                 tipou_nombre      VARCHAR(30)*/
             while (results.next()) {
                 id1 = results.getInt("id_tipo_usuario");
                 nombre = results.getString("tipou_nombre");
                 if (id1 == id) {
-                    obj = new TipoUsuario(id,nombre);
+                    obj = new TipoUsuario(id, nombre);
                     break;
                 }
             }
@@ -247,32 +248,55 @@ public class ClasesConsultas implements GeneralClasesConsultas {
 
     @Override
     public ArrayList mostrarEstadoJustificativo() {
-         try {
+        try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String consultaSQL = "SELECT * FROM tipo_usuario;";
+            String consultaSQL = "SELECT * FROM  estado_justificativo;";
             ResultSet results = statement.executeQuery(consultaSQL);
             int id;
             String nombre;
-            /*  id_tipo_usuario   INT NOT NULL,
-                tipou_nombre      VARCHAR(30)*/
-            arrayTipoUsarios.removeAll(arrayTipoUsarios);
+            /* id_estadoj       INT NOT NULL,
+                nombre_estadoj   VARCHAR(30)*/
+            arrayEstadoJ.removeAll(arrayEstadoJ);
             while (results.next()) {
-                id = results.getInt("id_tipo_usuario");
-                nombre = results.getString("tipou_nombre");
-                arrayTipoUsarios.add(new TipoUsuario(id, nombre));
+                id = results.getInt("id_estadoj");
+                nombre = results.getString("nombre_estadoj");
+                arrayEstadoJ.add(new EstadoJustificativo(id, nombre));
             }
             connection.close();
         } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
         }
-        return arrayTipoUsarios;
+        return arrayEstadoJ;
     }
 
     @Override
     public EstadoJustificativo buscarEstadoJustificativo(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EstadoJustificativo obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM estado_justificativo WHERE id_estadoj=" + id + ";";
+            ResultSet results = statement.executeQuery(query);
+            int id1;
+            String nombre;
+            /* id_estadoj       INT NOT NULL,
+               nombre_estadoj   VARCHAR(30)*/
+            while (results.next()) {
+                id1 = results.getInt("id_estadoj");
+                nombre = results.getString("nombre_estadoj");
+                if (id1 == id) {
+                    obj = new EstadoJustificativo(id, nombre);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
     private ArrayList<EstadoInasistencia> arrayEstadoI = new ArrayList<>();

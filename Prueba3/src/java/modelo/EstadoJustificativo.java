@@ -43,6 +43,11 @@ public class EstadoJustificativo implements Serializable {
     public EstadoJustificativo() {
     }
 
+    public EstadoJustificativo(Integer idEstadoj, String nombreEstadoj) {
+        this.idEstadoj = idEstadoj;
+        this.nombreEstadoj = nombreEstadoj;
+    }
+
     public EstadoJustificativo(Integer idEstadoj) {
         this.idEstadoj = idEstadoj;
     }
