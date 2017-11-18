@@ -5,20 +5,20 @@
  */
 package dao;
 
+import modelo.Director;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import modelo.Alumno;
 
 /**
  *
  * @author benja
  */
-public class AlumnoDAO implements GeneralAlumnoDAO {
+public class DirectorDAO implements GeneralDirectorDAO {
 
-    private ArrayList<Alumno> arrayAlumnos = new ArrayList<>();
+    private ArrayList<Director> arrayDirectores = new ArrayList<>();
 
     @Override
     public ArrayList mostrarDatos() {
@@ -28,54 +28,53 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
 
             Statement statement = connection.createStatement();
 
-            String consultaSQL = "SELECT * FROM alumno;";
+            String consultaSQL = "SELECT * FROM director;";
 
             ResultSet results = statement.executeQuery(consultaSQL);
 
             int rut;
-            String dv, pnombre, snombre, appaterno, apmaterno, email, idCarrera;
+            String dv, pnombre, snombre, appaterno, apmaterno, email;
 
-            /* rut_alumno   INT NULL,
-                dv_alumno    VARCHAR(1),
+            /* rut_director   INT NULL,
+                dv_director    VARCHAR(1),
                 pnombre      VARCHAR(30),
                 snombre      VARCHAR(30),
                 appaterno    VARCHAR(30),
                 apmaterno    VARCHAR(30),
                 email        VARCHAR(30),
-                id_carrera   VARCHAR(30) NOT NULL*/
-            arrayAlumnos.removeAll(arrayAlumnos);
+             */
+            arrayDirectores.removeAll(arrayDirectores);
             while (results.next()) {
-                rut = results.getInt("rut_alumno");
-                dv = results.getString("dv_alumno");
+                rut = results.getInt("rut_director");
+                dv = results.getString("dv_director");
                 pnombre = results.getString("pnombre");
                 snombre = results.getString("snombre");
                 appaterno = results.getString("appaterno");
                 apmaterno = results.getString("apmaterno");
                 email = results.getString("email");
-                idCarrera = results.getString("id_carrera");
-                arrayAlumnos.add(new Alumno(rut, dv, pnombre, snombre, appaterno, apmaterno, email, idCarrera));
+                arrayDirectores.add(new Director(rut, dv, pnombre, snombre, appaterno, apmaterno, email));
             }
             connection.close();
         } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
         }
-        return arrayAlumnos;
+        return arrayDirectores;
     }
 
     @Override
-    public Alumno buscarDatos(int rut) {
-        Alumno obj = null;
+    public Director buscarDatos(int rut) {
+        Director obj = null;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
             Statement statement = connection.createStatement();
-            String query = "SELECT * FROM alumno WHERE rut_alumno=" + rut + ";";
+            String query = "SELECT * FROM director WHERE rut_director=" + rut + ";";
 
             ResultSet results = statement.executeQuery(query);
 
             int rut1;
-            String dv, pnombre, snombre, appaterno, apmaterno, email, idCarrera;
+            String dv, pnombre, snombre, appaterno, apmaterno, email;
 
             while (results.next()) {
                 rut1 = results.getInt("rut_alumno");
@@ -85,10 +84,9 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
                 appaterno = results.getString("appaterno");
                 apmaterno = results.getString("apmaterno");
                 email = results.getString("email");
-                idCarrera = results.getString("id_carrera");
 
                 if (rut1 == rut) {
-                    obj = new Alumno(rut1, dv, pnombre, snombre, appaterno, apmaterno, email, idCarrera);
+                    obj = new Director(rut1, dv, pnombre, snombre, appaterno, apmaterno, email);
                     break;
                 }
             }
@@ -100,12 +98,12 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
     }
 
     @Override
-    public int agregar(Alumno alumno) {
+    public int agregar(Director director) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String agregarSQL = "INSERT INTO alumno VALUES(" + alumno.getRutAlumno() + ",'" + alumno.getDvAlumno() + "','" + alumno.getPnombre() + "','" + alumno.getSnombre() + "','" + alumno.getAppaterno() + "','" + alumno.getApmaterno() + "','" + alumno.getEmail() + "','" + alumno.getIdCarrera() + "');";
+            String agregarSQL = "INSERT INTO director VALUES(" + director.getRutDirector()+ ",'" + director.getDvDirector()+ "','" + director.getPnombre() + "','" + director.getSnombre() + "','" + director.getAppaterno() + "','" + director.getApmaterno() + "','" + director.getEmail() + "');";
             int results = statement.executeUpdate(agregarSQL);
             connection.close();
             return results;
@@ -120,7 +118,7 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String query = "DELETE FROM alumno WHERE rut_alumno=" + rut;
+            String query = "DELETE FROM director WHERE rut_director=" + rut;
             int results = statement.executeUpdate(query);
             connection.close();
             System.out.println("valor---> " + results);
@@ -132,7 +130,7 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
     }
 
     @Override
-    public int actualizar(Alumno alumno) {
+    public int actualizar(Director director) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
