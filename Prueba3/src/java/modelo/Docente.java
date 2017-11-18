@@ -61,6 +61,16 @@ public class Docente implements Serializable {
     @Column(name = "email")
     private String email;
 
+    public Docente(Integer rutDocente, String dvDocente, String pnombre, String snombre, String appaterno, String apmaterno, String email) {
+        this.rutDocente = rutDocente;
+        this.dvDocente = dvDocente;
+        this.pnombre = pnombre;
+        this.snombre = snombre;
+        this.appaterno = appaterno;
+        this.apmaterno = apmaterno;
+        this.email = email;
+    }
+
     public Docente() {
     }
 

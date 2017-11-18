@@ -64,6 +64,16 @@ public class Coordinador implements Serializable {
     public Coordinador() {
     }
 
+    public Coordinador(Integer rutCoordinador, String dvCoordinador, String pnombre, String snombre, String appaterno, String apmaterno, String email) {
+        this.rutCoordinador = rutCoordinador;
+        this.dvCoordinador = dvCoordinador;
+        this.pnombre = pnombre;
+        this.snombre = snombre;
+        this.appaterno = appaterno;
+        this.apmaterno = apmaterno;
+        this.email = email;
+    }
+
     public Coordinador(Integer rutCoordinador) {
         this.rutCoordinador = rutCoordinador;
     }
