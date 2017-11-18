@@ -57,6 +57,14 @@ public class ControlUsuario implements Serializable {
     public ControlUsuario() {
     }
 
+    public ControlUsuario(Integer idControl, String usuario, String clave, Integer rutUsuario, int idTipoUsuario) {
+        this.idControl = idControl;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.rutUsuario = rutUsuario;
+        this.idTipoUsuario = idTipoUsuario;
+    }
+
     public ControlUsuario(Integer idControl) {
         this.idControl = idControl;
     }
