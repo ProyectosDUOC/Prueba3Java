@@ -328,7 +328,30 @@ public class ClasesConsultas implements GeneralClasesConsultas {
 
     @Override
     public EstadoInasistencia buscarEstadoInasistencia(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EstadoInasistencia obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM estado_inasistencia WHERE id_estadoi=" + id + ";";
+            ResultSet results = statement.executeQuery(query);
+            int id1;
+            String nombre;
+            /* id_estadoj       INT NOT NULL,
+               nombre_estadoj   VARCHAR(30)*/
+            while (results.next()) {
+                id1 = results.getInt("id_estadoj");
+                nombre = results.getString("nombre_estadoj");
+                if (id1 == id) {
+                    //obj = new EstadoJustificativo(id, nombre);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
     private ArrayList<EstadoCorreo> arrayEstadoC = new ArrayList<>();
