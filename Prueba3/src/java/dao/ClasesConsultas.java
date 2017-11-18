@@ -131,9 +131,10 @@ public class ClasesConsultas implements GeneralClasesConsultas {
     }
 
     private ArrayList<Seccion> arraySecciones = new ArrayList<>();
+
     @Override
     public ArrayList mostrarSeccion() {
-         try {
+        try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
@@ -148,7 +149,7 @@ public class ClasesConsultas implements GeneralClasesConsultas {
             while (results.next()) {
                 idSeccion = results.getString("id_seccion");
                 idRamo = results.getString("id_ramo");
-                rutDocente = results.getInt("rut_docente");                
+                rutDocente = results.getInt("rut_docente");
                 arraySecciones.add(new Seccion(idSeccion, idRamo, rutDocente));
             }
             connection.close();
@@ -164,9 +165,6 @@ public class ClasesConsultas implements GeneralClasesConsultas {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
-            /*  id_seccion    VARCHAR(30) NOT NULL,
-                id_ramo       VARCHAR(30) NOT NULL,
-                rut_docente   INT NOT NULL*/
             Statement statement = connection.createStatement();
             String query = "SELECT * FROM seccion WHERE id_seccion='" + id + "';";
             ResultSet results = statement.executeQuery(query);
@@ -174,11 +172,11 @@ public class ClasesConsultas implements GeneralClasesConsultas {
             String idSeccion, idRamo;
             /*  id_seccion    VARCHAR(30) NOT NULL,
                 id_ramo       VARCHAR(30) NOT NULL,
-                rut_docente   INT NOT NULL*/   
+                rut_docente   INT NOT NULL*/
             while (results.next()) {
                 idSeccion = results.getString("id_seccion");
                 idRamo = results.getString("id_ramo");
-                rutDocente = results.getInt("rut_docente");      
+                rutDocente = results.getInt("rut_docente");
                 if (idSeccion.equals(id)) {
                     obj = new Seccion(idSeccion, idRamo, rutDocente);
                     break;
@@ -192,22 +190,84 @@ public class ClasesConsultas implements GeneralClasesConsultas {
     }
 
     private ArrayList<TipoUsuario> arrayTipoUsarios = new ArrayList<>();
-
     @Override
     public ArrayList mostrarTipoUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String consultaSQL = "SELECT * FROM tipo_usuario;";
+            ResultSet results = statement.executeQuery(consultaSQL);
+            int id;
+            String nombre;
+            /*  id_tipo_usuario   INT NOT NULL,
+                tipou_nombre      VARCHAR(30)*/
+            arrayTipoUsarios.removeAll(arrayTipoUsarios);
+            while (results.next()) {
+                id = results.getInt("id_tipo_usuario");
+                nombre = results.getString("tipou_nombre");
+                arrayTipoUsarios.add(new TipoUsuario(id, nombre));
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayTipoUsarios;
     }
 
     @Override
     public TipoUsuario buscarTipoUsuario(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TipoUsuario obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM tipo_usuario WHERE id_tipo_usuario=" + id + ";";
+            ResultSet results = statement.executeQuery(query);
+            int id1;
+            String nombre;
+           /*  id_tipo_usuario   INT NOT NULL,
+                tipou_nombre      VARCHAR(30)*/
+            while (results.next()) {
+                id1 = results.getInt("id_tipo_usuario");
+                nombre = results.getString("tipou_nombre");
+                if (id1 == id) {
+                    obj = new TipoUsuario(id,nombre);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
     private ArrayList<EstadoJustificativo> arrayEstadoJ = new ArrayList<>();
 
     @Override
     public ArrayList mostrarEstadoJustificativo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String consultaSQL = "SELECT * FROM tipo_usuario;";
+            ResultSet results = statement.executeQuery(consultaSQL);
+            int id;
+            String nombre;
+            /*  id_tipo_usuario   INT NOT NULL,
+                tipou_nombre      VARCHAR(30)*/
+            arrayTipoUsarios.removeAll(arrayTipoUsarios);
+            while (results.next()) {
+                id = results.getInt("id_tipo_usuario");
+                nombre = results.getString("tipou_nombre");
+                arrayTipoUsarios.add(new TipoUsuario(id, nombre));
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayTipoUsarios;
     }
 
     @Override
