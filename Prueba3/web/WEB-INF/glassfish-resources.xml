@@ -10,5 +10,5 @@
         <property name="URL" value="jdbc:mysql://localhost:3306/instituto?zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
-    <jdbc-resource enabled="true" jndi-name="java:app/1" object-type="user" pool-name="mysql_instituto_rootPool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/instituto" object-type="user" pool-name="mysql_instituto_rootPool"/>
 </resources>

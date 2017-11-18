@@ -70,6 +70,17 @@ public class Alumno implements Serializable {
     public Alumno() {
     }
 
+    public Alumno(Integer rutAlumno, String dvAlumno, String pnombre, String snombre, String appaterno, String apmaterno, String email, String idCarrera) {
+        this.rutAlumno = rutAlumno;
+        this.dvAlumno = dvAlumno;
+        this.pnombre = pnombre;
+        this.snombre = snombre;
+        this.appaterno = appaterno;
+        this.apmaterno = apmaterno;
+        this.email = email;
+        this.idCarrera = idCarrera;
+    }
+
     public Alumno(Integer rutAlumno) {
         this.rutAlumno = rutAlumno;
     }
