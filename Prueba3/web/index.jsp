@@ -12,8 +12,8 @@
         <title>Login</title>
     </head>
     <body>
-        <h1>Login</h1>
-        <form>
+        <h1>Ingresa acá</h1>
+        <form action="Login" method="post">
             <table>
                 <tr>
                     <td>Usuario:</td>
@@ -25,7 +25,8 @@
                 </tr>
             </table>
             <div>
-                <input type="submit" name="accion" value="Ingresar"/>
+                <input type="submit" name="opcion" value="Entrar"/>
+                ${param.mensaje}
             </div>
         </form>
     </body>
