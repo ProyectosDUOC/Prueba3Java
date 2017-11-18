@@ -109,7 +109,7 @@ CREATE TABLE inasistencia (
 );
 
 CREATE TABLE justificacion (
-    inasistencia_id_inasistencia   INT NOT NULL,
+    id_inasistencia   INT NOT NULL,
     fecha_envio                    DATE,
     id_motivo                      INT NOT NULL,
     glosa                          VARCHAR(300),
@@ -187,7 +187,7 @@ ALTER TABLE justificacion
         REFERENCES estado_justificativo ( id_estadoj );
 
 ALTER TABLE justificacion
-    ADD CONSTRAINT justificacion_inasistencia_fk FOREIGN KEY ( inasistencia_id_inasistencia )
+    ADD CONSTRAINT justificacion_inasistencia_fk FOREIGN KEY ( id_inasistencia )
         REFERENCES inasistencia ( id_inasistencia );
 
 ALTER TABLE justificacion
