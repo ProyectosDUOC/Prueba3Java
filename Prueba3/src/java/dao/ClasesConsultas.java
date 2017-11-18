@@ -340,10 +340,10 @@ public class ClasesConsultas implements GeneralClasesConsultas {
             /* id_estadoj       INT NOT NULL,
                nombre_estadoj   VARCHAR(30)*/
             while (results.next()) {
-                id1 = results.getInt("id_estadoj");
-                nombre = results.getString("nombre_estadoj");
+                id1 = results.getInt("id_estadoi");
+                nombre = results.getString("nombre_estadoi");
                 if (id1 == id) {
-                    //obj = new EstadoJustificativo(id, nombre);
+                    obj = new EstadoInasistencia(id, nombre);
                     break;
                 }
             }
@@ -358,12 +358,57 @@ public class ClasesConsultas implements GeneralClasesConsultas {
 
     @Override
     public ArrayList mostrarEstadoCorreo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String consultaSQL = "SELECT * FROM  estado_correo;";
+            ResultSet results = statement.executeQuery(consultaSQL);
+            int id;
+            String nombre;
+            /* CREATE TABLE estado_correo (
+               id_estadoc       INT NOT NULL,
+               nombre_estadoc   VARCHAR(30)
+                                             );*/
+            arrayEstadoC.removeAll(arrayEstadoC);
+            while (results.next()) {
+                id = results.getInt("id_estadoc");
+                nombre = results.getString("nombre_estadoc");
+                arrayEstadoC.add(new EstadoCorreo(id, nombre));
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayEstadoC;    
     }
 
     @Override
     public EstadoCorreo buscarEstadoCorreo(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          EstadoCorreo obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM estado_correo WHERE id_estadoc=" + id + ";";
+            ResultSet results = statement.executeQuery(query);
+            int id1;
+            String nombre;
+            /* id_estadoj       INT NOT NULL,
+               nombre_estadoj   VARCHAR(30)*/
+            while (results.next()) {
+                id1 = results.getInt("id_estadoc");
+                nombre = results.getString("nombre_estadoc");
+                if (id1 == id) {
+                    obj = new EstadoCorreo(id, nombre);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
 }
