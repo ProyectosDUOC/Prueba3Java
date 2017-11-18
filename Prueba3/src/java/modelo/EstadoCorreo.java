@@ -43,6 +43,11 @@ public class EstadoCorreo implements Serializable {
     public EstadoCorreo() {
     }
 
+    public EstadoCorreo(Integer idEstadoc, String nombreEstadoc) {
+        this.idEstadoc = idEstadoc;
+        this.nombreEstadoc = nombreEstadoc;
+    }
+
     public EstadoCorreo(Integer idEstadoc) {
         this.idEstadoc = idEstadoc;
     }

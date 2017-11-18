@@ -6,12 +6,16 @@
 package modelo;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,15 +27,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "DetalleSeccion.findAll", query = "SELECT d FROM DetalleSeccion d")
-    , @NamedQuery(name = "DetalleSeccion.findByIdSeccion", query = "SELECT d FROM DetalleSeccion d WHERE d.detalleSeccionPK.idSeccion = :idSeccion")
-    , @NamedQuery(name = "DetalleSeccion.findByRutAlumno", query = "SELECT d FROM DetalleSeccion d WHERE d.detalleSeccionPK.rutAlumno = :rutAlumno")
+    , @NamedQuery(name = "DetalleSeccion.findByIdDetalleSeccion", query = "SELECT d FROM DetalleSeccion d WHERE d.idDetalleSeccion = :idDetalleSeccion")
+    , @NamedQuery(name = "DetalleSeccion.findByIdSeccion", query = "SELECT d FROM DetalleSeccion d WHERE d.idSeccion = :idSeccion")
+    , @NamedQuery(name = "DetalleSeccion.findByRutAlumno", query = "SELECT d FROM DetalleSeccion d WHERE d.rutAlumno = :rutAlumno")
     , @NamedQuery(name = "DetalleSeccion.findByAnio", query = "SELECT d FROM DetalleSeccion d WHERE d.anio = :anio")
     , @NamedQuery(name = "DetalleSeccion.findBySemestre", query = "SELECT d FROM DetalleSeccion d WHERE d.semestre = :semestre")})
 public class DetalleSeccion implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected DetalleSeccionPK detalleSeccionPK;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_detalle_seccion")
+    private Integer idDetalleSeccion;
+    @Size(max = 30)
+    @Column(name = "id_seccion")
+    private String idSeccion;
+    @Column(name = "rut_alumno")
+    private Integer rutAlumno;
     @Column(name = "anio")
     private Integer anio;
     @Column(name = "semestre")
@@ -40,20 +53,40 @@ public class DetalleSeccion implements Serializable {
     public DetalleSeccion() {
     }
 
-    public DetalleSeccion(DetalleSeccionPK detalleSeccionPK) {
-        this.detalleSeccionPK = detalleSeccionPK;
+    public DetalleSeccion(Integer idDetalleSeccion, String idSeccion, Integer rutAlumno, Integer anio, Integer semestre) {
+        this.idDetalleSeccion = idDetalleSeccion;
+        this.idSeccion = idSeccion;
+        this.rutAlumno = rutAlumno;
+        this.anio = anio;
+        this.semestre = semestre;
     }
 
-    public DetalleSeccion(String idSeccion, int rutAlumno) {
-        this.detalleSeccionPK = new DetalleSeccionPK(idSeccion, rutAlumno);
+    public DetalleSeccion(Integer idDetalleSeccion) {
+        this.idDetalleSeccion = idDetalleSeccion;
     }
 
-    public DetalleSeccionPK getDetalleSeccionPK() {
-        return detalleSeccionPK;
+    public Integer getIdDetalleSeccion() {
+        return idDetalleSeccion;
     }
 
-    public void setDetalleSeccionPK(DetalleSeccionPK detalleSeccionPK) {
-        this.detalleSeccionPK = detalleSeccionPK;
+    public void setIdDetalleSeccion(Integer idDetalleSeccion) {
+        this.idDetalleSeccion = idDetalleSeccion;
+    }
+
+    public String getIdSeccion() {
+        return idSeccion;
+    }
+
+    public void setIdSeccion(String idSeccion) {
+        this.idSeccion = idSeccion;
+    }
+
+    public Integer getRutAlumno() {
+        return rutAlumno;
+    }
+
+    public void setRutAlumno(Integer rutAlumno) {
+        this.rutAlumno = rutAlumno;
     }
 
     public Integer getAnio() {
@@ -75,7 +108,7 @@ public class DetalleSeccion implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (detalleSeccionPK != null ? detalleSeccionPK.hashCode() : 0);
+        hash += (idDetalleSeccion != null ? idDetalleSeccion.hashCode() : 0);
         return hash;
     }
 
@@ -86,7 +119,7 @@ public class DetalleSeccion implements Serializable {
             return false;
         }
         DetalleSeccion other = (DetalleSeccion) object;
-        if ((this.detalleSeccionPK == null && other.detalleSeccionPK != null) || (this.detalleSeccionPK != null && !this.detalleSeccionPK.equals(other.detalleSeccionPK))) {
+        if ((this.idDetalleSeccion == null && other.idDetalleSeccion != null) || (this.idDetalleSeccion != null && !this.idDetalleSeccion.equals(other.idDetalleSeccion))) {
             return false;
         }
         return true;
@@ -94,7 +127,7 @@ public class DetalleSeccion implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.DetalleSeccion[ detalleSeccionPK=" + detalleSeccionPK + " ]";
+        return "modelo.DetalleSeccion[ idDetalleSeccion=" + idDetalleSeccion + " ]";
     }
     
 }

@@ -49,6 +49,12 @@ public class Carrera implements Serializable {
     public Carrera() {
     }
 
+    public Carrera(String idCarrera, String nombreCarrera, int rutDirector) {
+        this.idCarrera = idCarrera;
+        this.nombreCarrera = nombreCarrera;
+        this.rutDirector = rutDirector;
+    }
+
     public Carrera(String idCarrera) {
         this.idCarrera = idCarrera;
     }

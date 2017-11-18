@@ -46,13 +46,14 @@ CREATE TABLE coordinador (
 ALTER TABLE coordinador ADD CONSTRAINT coordinador_pk PRIMARY KEY ( rut_coordinador );
 
 CREATE TABLE detalle_seccion (
-    id_seccion   VARCHAR(30) NOT NULL,
-    rut_alumno   INT NOT NULL,
-    anio         INT,
-    semestre     INT
+	id_detalle_seccion INT NOT NULL AUTO_INCREMENT,
+    id_seccion   	   VARCHAR(30),
+    rut_alumno   	   INT,
+    anio               INT,
+    semestre           INT,
+    PRIMARY KEY(id_detalle_seccion)
 );
 
-ALTER TABLE detalle_seccion ADD CONSTRAINT detalle_seccion_pk PRIMARY KEY ( id_seccion,rut_alumno );
 
 CREATE TABLE director (
     rut_director   INT NOT NULL,
@@ -158,14 +159,6 @@ ALTER TABLE carrera
 ALTER TABLE control_usuario
     ADD CONSTRAINT cous_tius_fk FOREIGN KEY ( id_tipo_usuario )
         REFERENCES tipo_usuario ( id_tipo_usuario );
-
-ALTER TABLE detalle_seccion
-    ADD CONSTRAINT detalle_alumno_fk FOREIGN KEY ( rut_alumno )
-        REFERENCES alumno ( rut_alumno );
-
-ALTER TABLE detalle_seccion
-    ADD CONSTRAINT detalle_seccion_fk FOREIGN KEY ( id_seccion )
-        REFERENCES seccion ( id_seccion );
 
 ALTER TABLE inasistencia
     ADD CONSTRAINT inasistencia_alumno_fk FOREIGN KEY ( rut_alumno )

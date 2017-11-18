@@ -43,6 +43,11 @@ public class EstadoInasistencia implements Serializable {
     public EstadoInasistencia() {
     }
 
+    public EstadoInasistencia(Integer idEstadoi, String nombreEstadoi) {
+        this.idEstadoi = idEstadoi;
+        this.nombreEstadoi = nombreEstadoi;
+    }
+
     public EstadoInasistencia(Integer idEstadoi) {
         this.idEstadoi = idEstadoi;
     }

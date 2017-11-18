@@ -69,6 +69,15 @@ public class Justificacion implements Serializable {
         this.idInasistencia = idInasistencia;
     }
 
+    public Justificacion(Integer idInasistencia, Date fechaEnvio, int idMotivo, String glosa, int idEstadoj, int idEstadoc) {
+        this.idInasistencia = idInasistencia;
+        this.fechaEnvio = fechaEnvio;
+        this.idMotivo = idMotivo;
+        this.glosa = glosa;
+        this.idEstadoj = idEstadoj;
+        this.idEstadoc = idEstadoc;
+    }
+
     public Justificacion(Integer idInasistencia, int idMotivo, int idEstadoj, int idEstadoc) {
         this.idInasistencia = idInasistencia;
         this.idMotivo = idMotivo;

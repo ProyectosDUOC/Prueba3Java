@@ -43,13 +43,13 @@ public class TipoUsuario implements Serializable {
     public TipoUsuario() {
     }
 
-    public TipoUsuario(Integer idTipoUsuario) {
-        this.idTipoUsuario = idTipoUsuario;
-    }
-
     public TipoUsuario(Integer idTipoUsuario, String tipouNombre) {
         this.idTipoUsuario = idTipoUsuario;
         this.tipouNombre = tipouNombre;
+    }
+
+    public TipoUsuario(Integer idTipoUsuario) {
+        this.idTipoUsuario = idTipoUsuario;
     }
 
     public Integer getIdTipoUsuario() {

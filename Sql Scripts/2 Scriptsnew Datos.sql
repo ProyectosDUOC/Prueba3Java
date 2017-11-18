@@ -82,27 +82,27 @@ INSERT INTO seccion VALUES('PEI110-030D','PEI110',2001);
 
 
 -- Crea un curos con X alumnos dentro de 1 id de seccion
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',10,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',11,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',12,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',13,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',14,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',15,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',16,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',17,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',18,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',19,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',20,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',21,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',22,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',23,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',24,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',25,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',26,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',27,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',28,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',29,2017,2);
-INSERT INTO detalle_seccion VALUES('DEJ4501-001',30,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',10,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',11,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',12,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',13,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',14,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',15,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',16,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',17,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',18,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',19,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',20,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',21,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',22,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',23,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',24,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',25,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',26,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',27,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',28,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',29,2017,2);
+INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',30,2017,2);
 -- Se encarga de saber si la fecha de envio fue enviado 1 vez (RF8)
 INSERT INTO estado_correo VALUES(1,'ENVIADO 1 VEZ');
 INSERT INTO estado_correo VALUES(2,'ENVIADO 2 VEZ');
