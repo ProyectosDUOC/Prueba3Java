@@ -44,6 +44,11 @@ public class Ramo implements Serializable {
     public Ramo() {
     }
 
+    public Ramo(String idRamo, String nombreRamo) {
+        this.idRamo = idRamo;
+        this.nombreRamo = nombreRamo;
+    }
+
     public Ramo(String idRamo) {
         this.idRamo = idRamo;
     }

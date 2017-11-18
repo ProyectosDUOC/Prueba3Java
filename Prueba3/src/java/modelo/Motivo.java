@@ -43,6 +43,11 @@ public class Motivo implements Serializable {
     public Motivo() {
     }
 
+    public Motivo(Integer idMotivo, String nombreMotivo) {
+        this.idMotivo = idMotivo;
+        this.nombreMotivo = nombreMotivo;
+    }
+
     public Motivo(Integer idMotivo) {
         this.idMotivo = idMotivo;
     }
