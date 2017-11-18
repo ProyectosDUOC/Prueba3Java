@@ -114,7 +114,8 @@ CREATE TABLE justificacion (
     id_motivo                      INT NOT NULL,
     glosa                          VARCHAR(300),
     id_estadoj                     INT NOT NULL,
-    id_estadoc                     INT NOT NULL
+    id_estadoc                     INT NOT NULL,
+    PRIMARY KEY (id_inasistencia)
 );
 
 CREATE TABLE motivo (
