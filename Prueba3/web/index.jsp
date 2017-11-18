@@ -10,8 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
+        <div id="main">
         <h1>Ingresa acá</h1>
         <form action="Login" method="post">
             <table>
@@ -25,9 +27,10 @@
                 </tr>
             </table>
             <div>
-                <input type="submit" name="opcion" value="Entrar"/>
+                <input id="entrar" type="submit" name="opcion" value="Entrar"/>
                 ${param.mensaje}
             </div>
         </form>
+        </div>
     </body>
 </html>
