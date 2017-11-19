@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/carlos/Desktop/javagit3/Prueba3Java/Prueba3/src/java/dao/InasistenciaDAO.java</file>
-            <file>file:/C:/Users/carlos/Desktop/javagit3/Prueba3Java/Prueba3/src/java/dao/JustificacionDAO.java</file>
+            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/web/Coordinador.jsp</file>
+            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/web/enviarCorreo.jsp</file>
+            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/src/java/controlador/ControladorServletCorreo.java</file>
+            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/src/java/controlador/CargarExcel.java</file>
+            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/web/css/login.css</file>
         </group>
     </open-files>
 </project-private>
