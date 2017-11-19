@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.*;
 import dao.*;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author Seba
@@ -32,17 +33,38 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-                //HttpSession sesion = request.getSession();
+        HttpSession sesion = request.getSession();
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
         String opcion = request.getParameter("opcion");
         
-        ControlUsuario intento = (new ControlUsuarioDAO()).buscarDatosLogin(user);
+        ControlUsuario ingreso = (new ControlUsuarioDAO()).buscarDatosLogin(user);
         
         if(opcion.equals("Entrar")){
-            if(intento!=null){
-                if(intento.getClave().equals(pass)){
-                    //response.sendRedirect("");
+            if(ingreso!=null){
+                if(ingreso.getClave().equals(pass)){
+                    
+                    sesion.setAttribute("usuario", ingreso);
+                    int tipousuario = ingreso.getIdTipoUsuario();
+                    
+                    switch(tipousuario){
+                        case 1:
+                            response.sendRedirect("Alumno.jsp");
+                            break;
+                        case 2:
+                            response.sendRedirect("Docente.jsp");
+                            break;
+                        case 3:
+                            response.sendRedirect("Director.jsp");
+                            break;
+                        case 4:
+                            response.sendRedirect("Coordinador.jsp");
+                            break;
+                        default:
+                            response.sendRedirect("Error.jsp");
+                            break;
+                    }
+                    
                 }
                 else{
                     //clave incorrecta
