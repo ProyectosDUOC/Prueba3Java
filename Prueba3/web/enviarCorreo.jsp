@@ -15,8 +15,7 @@
         <h1>WEB correo</h1>
         <form method="POST" action="ControladorServletCorreo">
             mi correo: <input type="text" name="miCorreo" value="controlinasistencia@gmail.com" required="required"><br>
-            Contraseña <input  type="password" name="pass" value="abcd14abcd" required="required"><br>
-            
+            Contraseña <input  type="password" name="pass" value="abcd14abcd" required="required"><br>            
             Destino: <input type="text" name="destino" required="required"><br>
             Asunto: <input  type="text" name="asunto" required="required"><br>
             Texto: <input type="text" name="mensaje" required="required"><br>
