@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Coordinador</h1>
-        <form action="CargarExcel.jsp" method="post" enctype="multipart/form-data">
+        <form action="CargarExcel" method="post" enctype="multipart/form-data">
             <input type="file" name="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
             <input type="submit" value="Subir" />
         </form>
