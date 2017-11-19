@@ -38,7 +38,7 @@ public class ControladorServletCorreo extends HttpServlet {
         String mensaje =  request.getParameter("mensaje");
         String btn =  request.getParameter("opcion");
         int estado = 0;
-        if (btn.equals("enviar")) {            
+        if (btn.equalsIgnoreCase("enviar")) {            
              estado = ControladorCorreo.Enviar(miCorreo, pass, destinoCorreo, asunto, mensaje);  
         }     
         

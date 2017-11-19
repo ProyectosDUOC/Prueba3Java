@@ -14,12 +14,29 @@
     <body>
         <h1>WEB correo</h1>
         <form method="POST" action="ControladorServletCorreo">
-            mi correo: <input type="text" name="miCorreo" value="controlinasistencia@gmail.com" required="required"><br>
-            Contraseña <input  type="password" name="pass" value="abcd14abcd" required="required"><br>            
-            Destino: <input type="text" name="destino" required="required"><br>
-            Asunto: <input  type="text" name="asunto" required="required"><br>
-            Texto: <input type="text" name="mensaje" required="required"><br>
-            <input type="submit" name="opcion"  value="enviar"><br>
+            <table>
+                <tr>
+                    <td>mi correo: </td>
+                    <td><input type="text" name="miCorreo" ></td>
+                </tr>
+                <tr>
+                    <td>Contraseña </td>
+                    <td><input type="password" name="pass"></td>
+                </tr>
+                <tr>
+                    <td>Destino: </td>
+                    <td><input type="text" name="destino" ></td>
+                </tr> 
+                <tr>
+                    <td>Asunto: </td>
+                    <td><input  type="text" name="asunto"></td>
+                </tr>
+                <tr>
+                    <td>Texto: </td>
+                    <td><input type="text" name="mensaje"></td>
+                </tr>
+            </table>
+            <input type="submit" name="opcion"  value="Enviar"><br>
         </form>
     </body>
 </html>
