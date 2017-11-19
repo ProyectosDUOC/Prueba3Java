@@ -8,15 +8,17 @@ package controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author benja
+ * @author Seba
  */
-public class ControladorServletCorreo extends HttpServlet {
+@WebServlet(name = "CargarExcel", urlPatterns = {"/CargarExcel"})
+public class CargarExcel extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,37 +31,7 @@ public class ControladorServletCorreo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        String miCorreo = request.getParameter("miCorreo");
-        String pass = request.getParameter("pass");
-        String destinoCorreo = request.getParameter("destino");
-        String asunto =  request.getParameter("asunto");
-        String mensaje =  request.getParameter("mensaje");
-        String btn =  request.getParameter("opcion");
-        int estado = 0;
-        if (btn.equalsIgnoreCase("enviar")) {            
-             estado = ControladorCorreo.Enviar(miCorreo, pass, destinoCorreo, asunto, mensaje);  
-        }     
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorServletCorreo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            if (estado==1) {
-             out.println("<h1>SE ENVIO</h1>");
-           
-            }else{
-                 out.println("<h1>No se envio :c <h1>");
-           
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

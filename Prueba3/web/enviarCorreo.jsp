@@ -4,6 +4,9 @@
     Author     : benja
 --%>
 
+<%@page import="dao.ClasesConsultas"%>
+<%@page import="modelo.Motivo"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,26 +20,41 @@
             <table>
                 <tr>
                     <td>mi correo: </td>
-                    <td><input type="text" name="miCorreo" value="controlinasistencia@gmail.com" required="required"></td>
+                    <td><input type="text" name="miCorreo" ></td>
                 </tr>
                 <tr>
                     <td>Contraseña </td>
-                    <td><input type="password" name="pass" value="abcd14abcd" required="required"></td>
+                    <td><input type="password" name="pass"></td>
                 </tr>
                 <tr>
                     <td>Destino: </td>
-                    <td><input type="text" name="destino" required="required"></td>
+                    <td><input type="text" name="destino" ></td>
                 </tr> 
                 <tr>
                     <td>Asunto: </td>
-                    <td><input  type="text" name="asunto" required="required"></td>
+                    <td><input  type="text" name="asunto"></td>
                 </tr>
                 <tr>
                     <td>Texto: </td>
-                    <td><input type="text" name="mensaje" required="required"></td>
+                    <td><input type="text" name="mensaje"></td>
                 </tr>
             </table>
             <input type="submit" name="opcion"  value="Enviar"><br>
         </form>
+        
+          <div class="input-field col s12">
+                <select name="motivos">
+                    <option value="" disabled selected>Seleccion un motivo</option>                    
+                    <%
+                        ArrayList<Motivo> arrayMotivos = new ArrayList();
+                        arrayMotivos = new ClasesConsultas().mostrarMotivos();
+                        for (Motivo mot : arrayMotivos) {
+                    %>                    
+                    <option value="<%= mot.getIdMotivo()%>" > <%= mot.getNombreMotivo()%> </option>                    
+
+                    <%   }
+                    %>
+                </select>                
+            </div>
     </body>
 </html>
