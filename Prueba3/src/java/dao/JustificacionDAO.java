@@ -123,7 +123,34 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
 
     @Override
     public int actualizar(Justificacion justificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int results = 0;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+
+            Statement statement = connection.createStatement();
+ 
+            String agregarSQL = "UPDATE justificacion SET  " + 
+                    ", fecha_envio = " + justificacion.getFechaEnvio() + 
+                    ", id_motivo = "+ justificacion.getIdMotivo()  +
+                    ", glosa  = '" + justificacion.getGlosa() +
+                    "', id_estadoj = " + justificacion.getIdEstadoj()  +
+                    ", id_estadoc = " + justificacion.getIdEstadoc() +
+                    " where id_inasistencia = " + justificacion.getIdInasistencia() + " ";
+            
+            results = statement.executeUpdate(agregarSQL);
+
+            connection.close();
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+
+        return results;
     }
 
 }
