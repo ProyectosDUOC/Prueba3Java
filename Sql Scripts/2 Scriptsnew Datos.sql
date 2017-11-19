@@ -6,8 +6,8 @@ INSERT INTO carrera VALUES('14460-03','ANALISTA PROGRAMADOR COMPUTACIONAL',3001)
 INSERT INTO docente VALUES(2001,'1','Enrique',' ',' ',' ','e.rique@profesor.duoc.cl');
 INSERT INTO docente VALUES(2002,'1','Crisitan','Java','Prfe','Java','c.crisitan@profesor.duoc.cl');
 -- coordinador ADMINISTRADOR
-INSERT INTO coordinador VALUES(4001,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl');
-INSERT INTO coordinador VALUES(4002,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl');
+INSERT INTO coordinador VALUES(4001,'1','Sebastian','','Orrego','Aguayo','controlinasistencia@gmail.com');
+INSERT INTO coordinador VALUES(4002,'1','Benjamin','Elias','Mora','Torres','controlinasistencia@gmail.com');
 -- alumnos de 10 - 28 (Acorde al excel)
 INSERT INTO alumno VALUES(10,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(11,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
@@ -39,9 +39,11 @@ INSERT INTO tipo_usuario VALUES(3,'director');
 INSERT INTO tipo_usuario VALUES(4,'coordinador');
 -- ACCESO coordinador
 INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('4001','1234',4001,4);
+INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('4002','1234',4002,4);
 -- ACCESO Docente
 INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('2001','1234',2001,2);
 INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('2002','1234',2002,2);
+INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('2003','1234',2003,2);
 -- ACCESO director
 INSERT INTO control_usuario (usuario,clave,rut_usuario,id_tipo_usuario) VALUES('3001','1234',3001,3);
 -- ACCESO alumno
@@ -79,7 +81,7 @@ INSERT INTO seccion VALUES('DEJ4501-001','DEJ4501',2002);
 INSERT INTO seccion VALUES('DEJ4501-002','DEJ4501',2002);
 INSERT INTO seccion VALUES('DEJ4501-003','DEJ4501',2002);
 INSERT INTO seccion VALUES('PEI110-030D','PEI110',2001);
-
+INSERT INTO seccion VALUES('ASO4461-001D','ASO4461',2003);
 
 -- Crea un curos con X alumnos dentro de 1 id de seccion
 INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ4501-001',10,2017,2);
