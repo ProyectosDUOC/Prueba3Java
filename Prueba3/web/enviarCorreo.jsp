@@ -17,23 +17,23 @@
             <table>
                 <tr>
                     <td>mi correo: </td>
-                    <td><input type="text" name="miCorreo" value="controlinasistencia@gmail.com" required="required"></td>
+                    <td><input type="text" name="miCorreo" ></td>
                 </tr>
                 <tr>
                     <td>Contraseña </td>
-                    <td><input type="password" name="pass" value="abcd14abcd" required="required"></td>
+                    <td><input type="password" name="pass"></td>
                 </tr>
                 <tr>
                     <td>Destino: </td>
-                    <td><input type="text" name="destino" required="required"></td>
+                    <td><input type="text" name="destino" ></td>
                 </tr> 
                 <tr>
                     <td>Asunto: </td>
-                    <td><input  type="text" name="asunto" required="required"></td>
+                    <td><input  type="text" name="asunto"></td>
                 </tr>
                 <tr>
                     <td>Texto: </td>
-                    <td><input type="text" name="mensaje" required="required"></td>
+                    <td><input type="text" name="mensaje"></td>
                 </tr>
             </table>
             <input type="submit" name="opcion"  value="Enviar"><br>
