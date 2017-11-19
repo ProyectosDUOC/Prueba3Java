@@ -119,6 +119,7 @@ INSERT INTO estado_justificativo VALUES(0,'No Justificado');
 INSERT INTO estado_justificativo VALUES(1,'Justificado');
 
 -- Motivos de la Justificacion
+INSERT INTO motivo VALUES (0,'');
 INSERT INTO motivo VALUES (1,'Economicos');
 INSERT INTO motivo VALUES (2,'Salud');
 INSERT INTO motivo VALUES (3,'Laboral');
