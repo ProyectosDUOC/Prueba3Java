@@ -16,11 +16,13 @@ import modelo.Docente;
  *
  * @author benja
  */
-public class DocenteDAO  implements GeneralDocenteDAO{
+public class DocenteDAO implements GeneralDocenteDAO {
+
     private ArrayList<Docente> arrayDocentes = new ArrayList<>();
+
     @Override
     public ArrayList mostrarDatos() {
-       try {
+        try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
@@ -97,11 +99,11 @@ public class DocenteDAO  implements GeneralDocenteDAO{
 
     @Override
     public int agregar(Docente docente) {
-       try {
+        try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String agregarSQL = "INSERT INTO docente VALUES(" + docente.getRutDocente()+ ",'" + docente.getDvDocente()+ "','" + docente.getPnombre() + "','" + docente.getSnombre() + "','" + docente.getAppaterno() + "','" + docente.getApmaterno() + "','" + docente.getEmail() + "');";
+            String agregarSQL = "INSERT INTO docente VALUES(" + docente.getRutDocente() + ",'" + docente.getDvDocente() + "','" + docente.getPnombre() + "','" + docente.getSnombre() + "','" + docente.getAppaterno() + "','" + docente.getApmaterno() + "','" + docente.getEmail() + "');";
             int results = statement.executeUpdate(agregarSQL);
             connection.close();
             return results;
@@ -112,7 +114,7 @@ public class DocenteDAO  implements GeneralDocenteDAO{
 
     @Override
     public int eliminar(int rut) {
-         try {
+        try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
@@ -131,5 +133,5 @@ public class DocenteDAO  implements GeneralDocenteDAO{
     public int actualizar(Docente docente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
