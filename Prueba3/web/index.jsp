@@ -28,7 +28,7 @@
             </table>
             <div>
                 <input id="entrar" type="submit" name="opcion" value="Entrar"/>
-                ${param.mensaje}
+                <span id="mensaje"> ${param.mensaje}</span>
             </div>
         </form>
         </div>
