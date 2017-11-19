@@ -28,7 +28,7 @@ public class ControlUsuarioDAO implements GeneralControlUDAO {
 
             Statement statement = connection.createStatement();
 
-            String consultaSQL = "SELECT * FROM alumno;";
+            String consultaSQL = "SELECT * FROM control_usuario;";
 
             ResultSet results = statement.executeQuery(consultaSQL);
 

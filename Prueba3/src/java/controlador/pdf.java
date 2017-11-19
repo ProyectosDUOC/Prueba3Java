@@ -105,8 +105,7 @@ public class pdf extends HttpServlet {
             tabla.addCell("hola");
             tabla.addCell("$100");
 
-            documento.add(tabla);
-
+            documento.add(tabla);   
             documento.close();
         } catch (Exception ex) {
             ex.getMessage();
