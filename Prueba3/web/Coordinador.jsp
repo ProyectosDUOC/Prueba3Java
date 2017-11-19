@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Coordinador</h1>
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+            <input type="submit" value="Subir" />
+        </form>
     </body>
 </html>
