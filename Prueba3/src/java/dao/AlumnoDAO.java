@@ -22,6 +22,7 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
 
     @Override
     public ArrayList mostrarDatos() {
+        Alumno obj =null;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
@@ -53,7 +54,9 @@ public class AlumnoDAO implements GeneralAlumnoDAO {
                 apmaterno = results.getString("apmaterno");
                 email = results.getString("email");
                 idCarrera = results.getString("id_carrera");
-                arrayAlumnos.add(new Alumno(rut, dv, pnombre, snombre, appaterno, apmaterno, email, idCarrera));
+                
+                obj = new Alumno(rut, dv,pnombre, snombre, appaterno, apmaterno, email, idCarrera);
+                arrayAlumnos.add(obj);
             }
             connection.close();
         } catch (java.lang.Exception ex) {
