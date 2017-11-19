@@ -13,6 +13,9 @@
         <title>Benjmin</title>
     </head>
     <body>
-       
+        <form name="reporte" action="pdf">
+            <h1>Hola<h1>
+            <input type="submit" value="Visualizar PDF" name="btnver" />
+        </form>
     </body>
 </html>
