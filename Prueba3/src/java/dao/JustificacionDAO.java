@@ -132,15 +132,16 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
             Statement statement = connection.createStatement();
-            /*
+ 
             String agregarSQL = "UPDATE justificacion SET  " + 
-                    ",rut_alumno = " + inasistencia.getRutAlumno()+ 
-                    ", id_seccion = '"+ inasistencia.getIdSeccion()  +
-                    "', fecha = " + inasistencia.getFecha() +
-                    ", id_estadoi = " + inasistencia.getIdEstadoi() +
-                    " where id_inasistencia = " + inasistencia.getIdInasistencia() + " ";
+                    ", fecha_envio = " + justificacion.getFechaEnvio() + 
+                    ", id_motivo = "+ justificacion.getIdMotivo()  +
+                    ", glosa  = '" + justificacion.getGlosa() +
+                    "', id_estadoj = " + justificacion.getIdEstadoj()  +
+                    ", id_estadoc = " + justificacion.getIdEstadoc() +
+                    " where id_inasistencia = " + justificacion.getIdInasistencia() + " ";
             
-            results = statement.executeUpdate(agregarSQL);*/
+            results = statement.executeUpdate(agregarSQL);
 
             connection.close();
 
