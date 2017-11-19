@@ -12,13 +12,16 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import dao.AlumnoDAO;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Alumno;
 
 /**
  *
@@ -31,70 +34,102 @@ public class pdf extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/pdf");
         OutputStream out = response.getOutputStream();
-        
-        try  {
-           try{
-               //Se crea un instacia de documento
-               Document documento = new Document();
-               //se crea la salida de documento pdf
-               PdfWriter.getInstance(documento, out);
-               
-               
-               //Se abrira el documento
-               documento.open();
-               //PARA ESCRIBIR
-               Paragraph par1 = new Paragraph();
-               //TITULO
-               Font  fontitulo = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.BLUE);
-               par1.add(new Phrase("Reporte con iTexpdf.jar", fontitulo));
-               par1.setAlignment(Element.ALIGN_CENTER);
-               
-               //SAto de linea o salto de pagina
-               par1.add(new Phrase(Chunk.NEWLINE));               
-               par1.add(new Phrase(Chunk.NEWLINE));
-               
-               //agregar al documento
-               documento.add(par1);
-               
-               Paragraph par2 = new Paragraph();
-               //TITULO
-               Font  descripcion = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
-               par2.add(new Phrase("Estamos trabajando 123444", descripcion));
-               par2.setAlignment(Element.ALIGN_JUSTIFIED);
-               
-               //SAto de linea o salto de pagina
-               par2.add(new Phrase(Chunk.NEWLINE));               
-               par2.add(new Phrase(Chunk.NEWLINE));
-               
-               //agregar al documento
-               documento.add(par2);
-               
-               Image imagen = Image.getInstance("C:\\Users\\benja\\Desktop\\4TO SEMESTRE DUOC\\2.- 4to Semestre\\Desarrollo en Java\\Clases\\Prueba3\\Prueba 3\\Prueba3Java\\Prueba3\\src\\java\\imagen\\logo_duoc.png");
-               imagen.setAlignment(Element.ALIGN_CENTER);
-               imagen.scaleAbsolute(100,50);
-               documento.add(imagen);
-               
-               
-               
-               //tablas
-               // Cantidad de lineas
-               PdfPTable tabla = new PdfPTable(3);
-               //cantidad de celdas
-               PdfPCell celda1 = new PdfPCell(new Paragraph("codigo",FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
-               PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre",FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
-               PdfPCell celda3 = new PdfPCell(new Paragraph("Precio",FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
-               
-               tabla.addCell(celda1);
-               tabla.addCell(celda2);
-               tabla.addCell(celda3);               
-               documento.add(tabla);
-               
-               
-               documento.close();
-           }
-           catch(Exception ex){ex.getMessage();}
-        }
-        finally{
+
+        try {
+            try {
+                AlumnoDAO alumnos = new AlumnoDAO();
+                ArrayList<Alumno> arrayAlumnos = alumnos.mostrarDatos();
+                try {
+                    //Se crea un instacia de documento
+                    Document documento = new Document();
+                    //se crea la salida de documento pdf
+                    PdfWriter.getInstance(documento, out);
+
+                    //Se abrira el documento
+                    documento.open();
+                    //PARA ESCRIBIR
+                    Paragraph par1 = new Paragraph();
+                    //TITULO
+                    Font fontitulo = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.BLUE);
+                    par1.add(new Phrase("Reporte con iTexpdf.jar", fontitulo));
+                    par1.setAlignment(Element.ALIGN_CENTER);
+
+                    //SAto de linea o salto de pagina
+                    par1.add(new Phrase(Chunk.NEWLINE));
+                    par1.add(new Phrase(Chunk.NEWLINE));
+
+                    //agregar al documento
+                    documento.add(par1);
+
+                    Paragraph par2 = new Paragraph();
+                    //TITULO
+                    Font descripcion = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
+                    par2.add(new Phrase("Estamos trabajando 123444", descripcion));
+                    par2.setAlignment(Element.ALIGN_JUSTIFIED);
+
+                    //SAto de linea o salto de pagina
+                    par2.add(new Phrase(Chunk.NEWLINE));
+                    par2.add(new Phrase(Chunk.NEWLINE));
+
+                    //agregar al documento
+                    documento.add(par2);
+
+                    Image imagen = Image.getInstance("C:\\Users\\benja\\Desktop\\4TO SEMESTRE DUOC\\2.- 4to Semestre\\Desarrollo en Java\\Clases\\Prueba3\\Prueba 3\\Prueba3Java\\Prueba3\\src\\java\\imagen\\logo_duoc.png");
+                    imagen.setAlignment(Element.ALIGN_CENTER);
+                    imagen.scaleAbsolute(100, 50);
+                    documento.add(imagen);
+
+                    //tablas
+                    // Cantidad de lineas
+                    PdfPTable tabla = new PdfPTable(3);
+                    //cantidad de celdas
+                    PdfPCell celda1 = new PdfPCell(new Paragraph("Rut", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
+                    PdfPCell celda2 = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
+                    PdfPCell celda3 = new PdfPCell(new Paragraph("Correo", FontFactory.getFont("Arial", 12, Font.BOLD, BaseColor.RED)));
+
+                    tabla.addCell(celda1);
+                    tabla.addCell(celda2);
+                    tabla.addCell(celda3);
+
+                    for (Alumno xx : arrayAlumnos) {
+                        tabla.addCell(xx.getRutAlumno()+"-"+xx.getDvAlumno());
+                        tabla.addCell(xx.getPnombre()+" "+xx.getApmaterno());
+                        tabla.addCell(xx.getEmail());
+                    }
+
+                    /* tabla.addCell("1");
+                tabla.addCell("hola");
+                tabla.addCell("$100");
+
+                tabla.addCell("2");
+                tabla.addCell("hola");
+                tabla.addCell("$100");
+                
+                tabla.addCell("3");
+                tabla.addCell("hola");
+                tabla.addCell("$100");
+
+                tabla.addCell("4");
+                tabla.addCell("hola");
+                tabla.addCell("$100");
+
+                tabla.addCell("5");
+                tabla.addCell("hola");
+                tabla.addCell("$100");
+
+                tabla.addCell("6");
+                tabla.addCell("hola");
+                tabla.addCell("$100"); */
+                    documento.add(tabla);
+
+                    documento.close();
+                } catch (Exception ex) {
+                    ex.getMessage();
+                }
+            } catch (Exception ex) {
+                ex.getMessage();
+            }
+        } finally {
             out.close();
         }
     }
