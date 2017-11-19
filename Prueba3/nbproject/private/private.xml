@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/web/index.jsp</file>
-            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/src/java/modelo/ControlUsuario.java</file>
-            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/src/java/controlador/Login.java</file>
-            <file>file:/C:/Users/Seba/Desktop/Prueba3Java/Prueba3/src/java/dao/CoordinadorDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/4TO%20SEMESTRE%20DUOC/2.-%204to%20Semestre/Desarrollo%20en%20Java/Clases/Prueba3/Prueba%203/Prueba3Java/Prueba3/src/java/dao/JustificacionDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/4TO%20SEMESTRE%20DUOC/2.-%204to%20Semestre/Desarrollo%20en%20Java/Clases/Prueba3/Prueba%203/Prueba3Java/Prueba3/src/java/modelo/Justificacion.java</file>
+            <file>file:/C:/Users/benja/Desktop/4TO%20SEMESTRE%20DUOC/2.-%204to%20Semestre/Desarrollo%20en%20Java/Clases/Prueba3/Prueba%203/Prueba3Java/Prueba3/src/java/dao/DocenteDAO.java</file>
         </group>
     </open-files>
 </project-private>
