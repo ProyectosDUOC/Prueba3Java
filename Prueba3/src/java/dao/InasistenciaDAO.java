@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Inasistencia;
@@ -20,6 +22,7 @@ import modelo.Inasistencia;
 public class InasistenciaDAO implements GeneralInasistenciaDAO{
 
     private ArrayList<Inasistencia> arrayInasistencias = new ArrayList<>();
+    private static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     
     @Override
     public ArrayList mostrarDatos() {
@@ -106,7 +109,7 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String agregarSQL = "INSERT INTO inasistencia (rut_alumno,id_seccion,fecha,id_estadoi) VALUES(" + inasistencia.getRutAlumno() + ",'" + inasistencia.getIdSeccion() + "','" + inasistencia.getFecha() + "'," + inasistencia.getIdEstadoi() + ");";
+            String agregarSQL = "INSERT INTO inasistencia (rut_alumno,id_seccion,fecha,id_estadoi) VALUES(" + inasistencia.getRutAlumno() + ",'" + inasistencia.getIdSeccion() + "','" + formatter.format(inasistencia.getFecha()) + "'," + inasistencia.getIdEstadoi() + ");";
             int results = statement.executeUpdate(agregarSQL);
             connection.close();
             return results;
