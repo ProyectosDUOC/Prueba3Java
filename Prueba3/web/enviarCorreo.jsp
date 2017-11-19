@@ -4,6 +4,9 @@
     Author     : benja
 --%>
 
+<%@page import="dao.ClasesConsultas"%>
+<%@page import="modelo.Motivo"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,5 +41,20 @@
             </table>
             <input type="submit" name="opcion"  value="Enviar"><br>
         </form>
+        
+          <div class="input-field col s12">
+                <select name="motivos">
+                    <option value="" disabled selected>Seleccion un motivo</option>                    
+                    <%
+                        ArrayList<Motivo> arrayMotivos = new ArrayList();
+                        arrayMotivos = new ClasesConsultas().mostrarMotivos();
+                        for (Motivo mot : arrayMotivos) {
+                    %>                    
+                    <option value="<%= mot.getIdMotivo()%>" > <%= mot.getNombreMotivo()%> </option>                    
+
+                    <%   }
+                    %>
+                </select>                
+            </div>
     </body>
 </html>
