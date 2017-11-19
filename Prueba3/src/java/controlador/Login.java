@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
                     
                     switch(tipousuario){
                         case 1:
-                            response.sendRedirect("Alumno.jsp");
+                            response.sendRedirect("Alumno.jsp?");
                             break;
                         case 2:
                             response.sendRedirect("Docente.jsp");

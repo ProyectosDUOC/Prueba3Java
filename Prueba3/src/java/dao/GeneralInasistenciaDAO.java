@@ -18,4 +18,5 @@ public interface GeneralInasistenciaDAO {
     public abstract int agregar(Inasistencia inasistencia);
     public abstract int eliminar(int idInasistencia);
     public abstract int actualizar(Inasistencia inasistencia); 
+    public abstract int actualizarEnviadoAlumnos(int id, int estadoInasistencia); 
 }

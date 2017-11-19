@@ -165,5 +165,33 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
 
         return results;
     }
+
+    @Override
+    public int actualizarEnviadoAlumnos(int id, int estadoInasistencia) {
+         int results = 0;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String agregarSQL = "UPDATE inasistencia SET  " +
+                    " id_estadoi = " + estadoInasistencia +
+                    " where id_inasistencia = " +id+";";
+ 
+            results = statement.executeUpdate(agregarSQL);
+
+            connection.close();
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+
+        return results;
+    }
     
 }
