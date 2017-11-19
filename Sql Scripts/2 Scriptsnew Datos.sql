@@ -1,5 +1,5 @@
 -- director
-INSERT INTO director VALUES(3001,'1','Carlos','Alberto','Orellana','Aguayo','carlosorellana.oa@gmail.com');
+INSERT INTO director VALUES(3001,'1','Carlos','Alberto','Orellana','Aguayo','controlinasistencia@gmail.com');
 -- Carreras -- necesitan tener un director
 INSERT INTO carrera VALUES('14460-03','ANALISTA PROGRAMADOR COMPUTACIONAL',3001);
 -- docente
@@ -11,7 +11,7 @@ INSERT INTO coordinador VALUES(4001,'1','Sebastian','','Orrego','Aguayo','contro
 INSERT INTO coordinador VALUES(4002,'1','Benjamin','Elias','Mora','Torres','controlinasistencia@gmail.com');
 -- alumnos de 10 - 28 (Acorde al excel)
 INSERT INTO alumno VALUES(10,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
-INSERT INTO alumno VALUES(11,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');--
+INSERT INTO alumno VALUES(11,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(12,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(13,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(14,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
@@ -24,8 +24,8 @@ INSERT INTO alumno VALUES(20,'1','Benjamin','Elias','Mora','Torres','b.morat@alu
 INSERT INTO alumno VALUES(21,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(22,'1','Jack','Johnny','Sparow','Deep','car.orellanaa@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(23,'1','Steve','John','Rogers','Storm','s.orregoa@alumnos.duoc.cl','14460-03');
-INSERT INTO alumno VALUES(24,'1','Alan','Vasili','Grant','Borodin','car.orellanaa@alumnos.duoc.cl','14460-03');
-INSERT INTO alumno VALUES(25,'1','Marko','James','Ramius','Greer','s.orregoa@alumnos.duoc.cl','14460-03');
+INSERT INTO alumno VALUES(24,'1','Carlos','Alberto','Orellana','Aguayo','car.orellanaa@alumnos.duoc.cl','14460-03');
+INSERT INTO alumno VALUES(25,'1','Sebastian',' ','Orrego','Aguayo','s.orregoa@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(26,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(27,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(28,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
@@ -110,9 +110,10 @@ INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('DEJ450
 INSERT INTO estado_correo VALUES(1,'ENVIADO 1 VEZ');
 INSERT INTO estado_correo VALUES(2,'ENVIADO 2 VEZ');
 -- Se encarga de controlar de formal general la inasistencia (RF7)
-INSERT INTO estado_inasistencia VALUES(0,'No Justificado');
-INSERT INTO estado_inasistencia VALUES(1,'Justificado por alumno');
-INSERT INTO estado_inasistencia VALUES(2,'Revisado por Docente');
+INSERT INTO estado_inasistencia VALUES(0,'subido');
+INSERT INTO estado_inasistencia VALUES(1,'Enviado a los Alumnos');
+INSERT INTO estado_inasistencia VALUES(2,'Justificado por alumno');
+INSERT INTO estado_inasistencia VALUES(3,'Revisado por Docente');
 --  Se encarga de controlar el estado de la Justificacion si ha respondido el alumno (RF6)
 INSERT INTO estado_justificativo VALUES(0,'No Justificado');
 INSERT INTO estado_justificativo VALUES(1,'Justificado');
