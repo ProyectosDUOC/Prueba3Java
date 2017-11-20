@@ -13,10 +13,13 @@
         <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
-        <h1>Coordinador</h1>
-        <form action="CargarExcel" method="post" enctype="multipart/form-data">
-            <input type="file" name="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-            <input type="submit" value="Subir" />
+        <h1>Menu Coordinador</h1>
+        <form action="MenuCoordinador" method="post" >
+            <div>
+            <input type="button" name="opcion" value="Subir Inasistencias"/>
+            <input type="button" name="opcion" value="Enviar Correos"/>
+            <input type="button" name="opcion" value="Ver datos"/>
+            </div>
         </form>
     </body>
 </html>

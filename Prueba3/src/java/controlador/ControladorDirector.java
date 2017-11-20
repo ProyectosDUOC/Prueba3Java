@@ -5,29 +5,18 @@
  */
 package controlador;
 
-import dao.InasistenciaDAO;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
-import java.util.Date;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import modelo.Inasistencia;
-import org.apache.poi.xssf.usermodel.*;
-import org.apache.poi.ss.usermodel.*;
 
 /**
  *
- * @author Seba
+ * @author carlos
  */
-@WebServlet(name = "CargarExcel", urlPatterns = {"/CargarExcel"})
-@MultipartConfig
-public class CargarExcel extends HttpServlet {
+public class ControladorDirector extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,40 +29,31 @@ public class CargarExcel extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         
-            Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-            InputStream fileContent = filePart.getInputStream();
-            
-            //Get the workbook instance for XLS file 
-            XSSFWorkbook workbook = new XSSFWorkbook (fileContent);
-
-            //Get first sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(0);
-            
-            int rut_alumno;
-            String seccion;
-            Date fecha;
-            Inasistencia falta;
-            InasistenciaDAO inasistencias = new InasistenciaDAO();
-            for(Row fila : sheet )
-            {                
-                if(fila.getCell(0).getCellTypeEnum()==CellType.NUMERIC)
-                    rut_alumno = (int) fila.getCell(0).getNumericCellValue();                
-                else
-                    continue;
-                
-                seccion = fila.getCell(1).getStringCellValue();
-                
-                try { fecha = fila.getCell(3).getDateCellValue(); }
-                catch (Exception ex) { break; }
-                
-                falta=new Inasistencia(0,rut_alumno,seccion,fecha,0);
-                inasistencias.agregar(falta);                
-            }
-            response.sendRedirect("Coordinador.jsp");
+        String opcion = request.getParameter("Opcion");
+        
+        if(opcion.equalsIgnoreCase("Acceder"))
+        {
+            response.sendRedirect("reporteInasistencias.jsp");
         }
-    
+        
+        
+        
+        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ControladorDirector</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ControladorDirector at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

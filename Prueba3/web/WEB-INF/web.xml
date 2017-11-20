@@ -8,6 +8,14 @@
         <servlet-name>ControladorServletCorreo</servlet-name>
         <servlet-class>controlador.ControladorServletCorreo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorDirector</servlet-name>
+        <servlet-class>controlador.ControladorDirector</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MenuCoordinador</servlet-name>
+        <servlet-class>controlador.MenuCoordinador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>ControladorServletCorreo</servlet-name>
         <url-pattern>/ControladorServletCorreo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorDirector</servlet-name>
+        <url-pattern>/ControladorDirector</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuCoordinador</servlet-name>
+        <url-pattern>/MenuCoordinador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

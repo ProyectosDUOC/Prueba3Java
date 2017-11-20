@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Director de Carrera</h1>
+        <form method="POST" action="ControladorDirector">
+            <input type="submit" value="Reporte por Semestre" name="Opcion" />
+            <input type="submit" value="Acceder" name="Opcion" />
+            <input type="submit" value="Checkeado por docente" name="Opcion" />
+        </form>
     </body>
 </html>
