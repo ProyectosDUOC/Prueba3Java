@@ -194,6 +194,52 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
         return results;
     }
 
+     private ArrayList<Inasistencia> arrayInasistencias2 = new ArrayList<>();
+    @Override
+    public ArrayList buscarRut(int rutAlumno) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String consultaSQL = "SELECT * FROM inasistencia WHERE rut_alumno="+rutAlumno+";";
+
+            ResultSet results = statement.executeQuery(consultaSQL);
+
+            int idInasistencia;
+            int rutAlumno2; 
+            String idSeccion;
+            Date fecha;
+            int idEstadoi;
+            
+            /* 
+            id_inasistencia   INT NOT NULL AUTO_INCREMENT,
+            rut_alumno        INT NOT NULL,
+            id_seccion    VARCHAR(30) NOT NULL,
+            fecha             DATE,
+            id_estadoi        INT NOT NULL,
+            */
+            arrayInasistencias2.removeAll(arrayInasistencias2);
+            while (results.next()) {
+                rutAlumno2 = results.getInt("rut_alumno");
+                if (rutAlumno2==rutAlumno) {
+                    idInasistencia = results.getInt("id_inasistencia");
+                    rutAlumno = results.getInt("rut_alumno");
+                    idSeccion = results.getString("id_Seccion");
+                    fecha = results.getDate("fecha");
+                    idEstadoi = results.getInt("id_estadoi");                
+                   arrayInasistencias2.add(new Inasistencia(idInasistencia, rutAlumno, idSeccion, fecha, idEstadoi));
+            
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayInasistencias2;
+    }
+
     
     
 }

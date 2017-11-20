@@ -14,7 +14,8 @@ import modelo.Inasistencia;
  */
 public interface GeneralInasistenciaDAO {
     public abstract ArrayList mostrarDatos();
-    public abstract Inasistencia buscar(int idInasistencia);
+    public abstract Inasistencia buscar(int idInasistencia);    
+    public abstract ArrayList buscarRut(int rutAlumno);
     public abstract int agregar(Inasistencia inasistencia);
     public abstract int eliminar(int idInasistencia);
     public abstract int actualizar(Inasistencia inasistencia); 
