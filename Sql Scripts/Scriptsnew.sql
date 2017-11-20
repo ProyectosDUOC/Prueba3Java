@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS instituto;
+
+go 
 
 CREATE Database instituto;
 
