@@ -131,3 +131,13 @@ INSERT INTO motivo VALUES (8,'Problemas familiares varios');
 INSERT INTO motivo VALUES (9,'Problemas con el transporte');
 INSERT INTO motivo VALUES (10,'Actividad extra-programatica del instituto');
 INSERT INTO motivo VALUES (11,'Otros');
+
+-- PARA REPORTE DE INASISTENCIAS 
+INSERT INTO inasistencia (rut_alumno,id_seccion, fecha, id_estadoi) VALUES (11,'DEJ4501-001','2017-09-12',2);
+INSERT Into justificacion values (1,'2017-11-18',7,'no dormi bien y me quede dormido',1,2);
+
+INSERT INTO inasistencia (rut_alumno,id_seccion, fecha, id_estadoi) VALUES (14,'DEJ4501-002','2017-09-05',2);
+INSERT Into justificacion values (2,'2017-11-18',9,'no me paro la micro',1,2);
+
+INSERT INTO inasistencia (rut_alumno,id_seccion, fecha, id_estadoi) VALUES (18,'PEI110-030D','2017-07-08',2);
+INSERT Into justificacion values (3,'2017-11-18',6,'el profesor es muy loco para enseñar',1,2);
