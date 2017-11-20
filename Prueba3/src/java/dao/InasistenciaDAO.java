@@ -180,7 +180,7 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
 
             String agregarSQL = "UPDATE inasistencia SET  " +
                     " id_estadoi = " + estadoInasistencia +
-                    " where id_inasistencia = " +id+";";
+                    " where id_inasistencia = " +id+"";
  
             results = statement.executeUpdate(agregarSQL);
 
