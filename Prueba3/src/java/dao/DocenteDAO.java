@@ -77,8 +77,8 @@ public class DocenteDAO implements GeneralDocenteDAO {
             String dv, pnombre, snombre, appaterno, apmaterno, email;
 
             while (results.next()) {
-                rut1 = results.getInt("rut_alumno");
-                dv = results.getString("dv_alumno");
+                rut1 = results.getInt("rut_docente");
+                dv = results.getString("dv_docente");
                 pnombre = results.getString("pnombre");
                 snombre = results.getString("snombre");
                 appaterno = results.getString("appaterno");

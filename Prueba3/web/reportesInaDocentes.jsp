@@ -12,8 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <form name="reporte" action="ControladorPDF">
         <h1>Hello World!</h1>
-         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
+        <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix="sql"   uri="http://java.sun.com/jstl/sql" %>
 
 
@@ -23,16 +24,55 @@
             user="root"
             password=""/>      
 
-        <sql:query var="alumnos">
-            SELECT * FROM alumno;
+        <sql:query var="consulta">               
+            SELECT *
+            FROM docente JOIN seccion using(rut_docente) 
+            JOIN inasistencia using(id_seccion)
+            JOIN justificacion using(id_inasistencia)
+            JOIN motivo  using(id_motivo) where id_estadoi=3;
         </sql:query>
-
-        <UL>
-            <c:forEach var="row" items="${alumnos.rows}">
-                <li>${row.rut_alumno}
-                    ${row.dv_alumno}
-                    ${row.pnombre}   
+        <table border="1">
+            <thead>
+                <tr>                    
+                    <th>Rut Docente</th> 
+                    <th>Nombre Docente</th>
+                    <th>Seccion</th>
+                    <th>Rut alumno</th>
+                    <th>Fecha inasistencia</th>
+                    <th>Motivo</th>
+                    <th>Dscripcion del Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="row" items="${consulta.rows}">
+                    <tr>
+                        <td>${row.rut_docente} - 
+                            ${row.dv_docente}</td>
+                        <td>
+                            ${row.pnombre}
+                            ${row.snombre}
+                            ${row.appaterno}
+                            ${row.apmaterno}
+                        </td>
+                        <td>
+                            ${row.id_seccion}
+                        </td>
+                        <td>${row.rut_alumno}</td>
+                        <td>
+                            ${row.fecha} 
+                        </td>
+                        <td>
+                            ${row.nombre_motivo} 
+                        </td>
+                        <td>
+                            ${row.glosa}
+                        </td>
+                    </tr>
                 </c:forEach>
-        </UL>
+            </tbody>
+        </table>           
+            <h1>Hola<h1>
+            <input type="submit" value="Visualizar PDF" name="btnver" />
+        </form>
     </body>
 </html>

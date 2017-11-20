@@ -37,6 +37,9 @@ public class ControladorDirector extends HttpServlet {
         {
             response.sendRedirect("reporteInasistencias.jsp");
         }
+        if (opcion.equalsIgnoreCase("Checkeado por docente")) {
+            response.sendRedirect("reportesInaDocentes.jsp");
+        }
         
         
         
