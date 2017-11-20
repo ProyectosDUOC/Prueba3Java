@@ -33,36 +33,56 @@ public class ControladorEnviarCorreos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        InasistenciaDAO faltas = new InasistenciaDAO();
-        ArrayList<Inasistencia> faltasAlumno;           
-        ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
+        String opcion = request.getParameter("opcion");
+        
+        if(opcion.equals("Enviar")){
 
-        String correo = "controlinasistencia@gmail.com";
-        String pass = "abcd14abcd";
-        String asunto = "Aviso de inasistencias";
+            InasistenciaDAO faltas = new InasistenciaDAO();
+            ArrayList<Inasistencia> faltasAlumno;           
+            ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
+
+            String correo = "controlinasistencia@gmail.com";
+            String pass = "abcd14abcd";
+            String asunto = "Aviso de inasistencias";
 
 
-        for (Alumno alumno : arrayAlumnos) {
-            
-            faltasAlumno = faltas.buscarNuevos(alumno.getRutAlumno());
-            if(faltasAlumno.size()>0){
-                StringBuilder mensaje = new StringBuilder();
-                mensaje.append("Estimado Alumno\n");
-                mensaje.append(" Nuestro sistema registra que usted tiene inasistencias,");
-                mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+            for (Alumno alumno : arrayAlumnos) {
 
-                for (Inasistencia falta : faltasAlumno) {
-                    mensaje.append(falta.getFecha());
+                faltasAlumno = faltas.buscarNuevos(alumno.getRutAlumno());
+                if(faltasAlumno.size()>0){
+                    StringBuilder mensaje = new StringBuilder();
+                    mensaje.append("Estimado Alumno");
+                    mensaje.append(alumno.getPnombre());
                     mensaje.append(" ");
-                    mensaje.append(falta.getIdSeccion());
+                    mensaje.append(alumno.getAppaterno());
                     mensaje.append("\n");
-                    
-                    faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
+                    mensaje.append(" Nuestro sistema registra que usted tiene inasistencias,");
+                    mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+
+                    for (Inasistencia falta : faltasAlumno) {
+                        mensaje.append(falta.getFecha());
+                        mensaje.append(" ");
+                        mensaje.append(falta.getIdSeccion());
+                        mensaje.append("\n");
+
+                        faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
+                    }
+
+                    mensaje.append("Saluda atentamente\n Coordinador.");
+
+                    ControladorCorreo.Enviar(correo, pass, alumno.getEmail(), asunto, mensaje.toString());
                 }
-
-                mensaje.append("Saluda atentamente\n Coordinador.");
-
-                ControladorCorreo.Enviar(correo, pass, alumno.getEmail(), asunto, mensaje.toString());
+            }
+            try (PrintWriter out = response.getWriter()) {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet ControladorDirector</title>");            
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Correos enviados exitosamente</h1>");
+                out.println("</body>");
+                out.println("</html>");
             }
         }
         

@@ -5,10 +5,6 @@
         <servlet-class>controlador.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControladorServletCorreo</servlet-name>
-        <servlet-class>controlador.ControladorServletCorreo</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ControladorDirector</servlet-name>
         <servlet-class>controlador.ControladorDirector</servlet-class>
     </servlet>
@@ -23,10 +19,6 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ControladorServletCorreo</servlet-name>
-        <url-pattern>/ControladorServletCorreo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControladorDirector</servlet-name>

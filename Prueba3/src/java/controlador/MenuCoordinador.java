@@ -36,7 +36,7 @@ public class MenuCoordinador extends HttpServlet {
             response.sendRedirect("SubirArchivo.jsp");
         }
         if(opcion.equals("Enviar Correos")){
-            response.sendRedirect("enviarCorreo.jsp");
+            response.sendRedirect("enviarCorreos.jsp");
         }
         if(opcion.equals("Ver datos")){
             response.sendRedirect("reporteInasistencias.jsp");
