@@ -75,11 +75,13 @@ public class pdf extends HttpServlet {
             //agregar al documento
             documento.add(par2);
 
+            /*
             Image imagen = Image.getInstance("C:\\Users\\benja\\Desktop\\4TO SEMESTRE DUOC\\2.- 4to Semestre\\Desarrollo en Java\\Clases\\Prueba3\\Prueba 3\\Prueba3Java\\Prueba3\\src\\java\\imagen\\logo_duoc.png");
             imagen.setAlignment(Element.ALIGN_CENTER);
             imagen.scaleAbsolute(100, 50);
             documento.add(imagen);
-
+            */
+            
             //tablas
             // Cantidad de lineas
             PdfPTable tabla = new PdfPTable(3);

@@ -152,7 +152,7 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
                     ", id_seccion = '"+ inasistencia.getIdSeccion()  +
                     "', fecha = " + inasistencia.getFecha() +
                     ", id_estadoi = " + inasistencia.getIdEstadoi() +
-                    " where id_inasistencia = " + inasistencia.getIdInasistencia() + " ";
+                    " where id_inasistencia = " + inasistencia.getIdInasistencia() + ";";
  
             results = statement.executeUpdate(agregarSQL);
 
