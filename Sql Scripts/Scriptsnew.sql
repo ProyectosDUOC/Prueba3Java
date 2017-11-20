@@ -1,6 +1,5 @@
 DROP DATABASE IF EXISTS instituto;
 
-go 
 
 CREATE Database instituto;
 
@@ -13,7 +12,7 @@ CREATE TABLE alumno (
     snombre      VARCHAR(30),
     appaterno    VARCHAR(30),
     apmaterno    VARCHAR(30),
-    email        VARCHAR(30),
+    email        VARCHAR(50),
     id_carrera   VARCHAR(30) NOT NULL
 );
 
@@ -43,7 +42,7 @@ CREATE TABLE coordinador (
     snombre           VARCHAR(30),
     appaterno         VARCHAR(30),
     apmaterno         VARCHAR(30),
-    email             VARCHAR(30)
+    email             VARCHAR(50)
 );
 
 ALTER TABLE coordinador ADD CONSTRAINT coordinador_pk PRIMARY KEY ( rut_coordinador );
@@ -65,7 +64,7 @@ CREATE TABLE director (
     snombre        VARCHAR(30),
     appaterno      VARCHAR(30),
     apmaterno      VARCHAR(30),
-    email          VARCHAR(30)
+    email          VARCHAR(50)
 );
 
 ALTER TABLE director ADD CONSTRAINT director_pk PRIMARY KEY ( rut_director );
@@ -77,7 +76,7 @@ CREATE TABLE docente (
     snombre       VARCHAR(30),
     appaterno     VARCHAR(30),
     apmaterno     VARCHAR(30),
-    email         VARCHAR(30)
+    email         VARCHAR(50)
 );
 
 ALTER TABLE docente ADD CONSTRAINT docente_pk PRIMARY KEY ( rut_docente );
