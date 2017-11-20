@@ -16,6 +16,10 @@
         <servlet-name>MenuCoordinador</servlet-name>
         <servlet-class>controlador.MenuCoordinador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorEnviarCorreos</servlet-name>
+        <servlet-class>controlador.ControladorEnviarCorreos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>MenuCoordinador</servlet-name>
         <url-pattern>/MenuCoordinador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorEnviarCorreos</servlet-name>
+        <url-pattern>/ControladorEnviarCorreos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

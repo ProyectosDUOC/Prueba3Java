@@ -5,29 +5,21 @@
  */
 package controlador;
 
-import dao.InasistenciaDAO;
+import dao.*;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
-import java.util.Date;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import modelo.Inasistencia;
-import org.apache.poi.xssf.usermodel.*;
-import org.apache.poi.ss.usermodel.*;
+import modelo.*;
 
 /**
  *
  * @author Seba
  */
-@WebServlet(name = "CargarExcel", urlPatterns = {"/CargarExcel"})
-@MultipartConfig
-public class CargarExcel extends HttpServlet {
+public class ControladorEnviarCorreos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,39 +33,40 @@ public class CargarExcel extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
-            String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-            InputStream fileContent = filePart.getInputStream();
-            
-            //Get the workbook instance for XLS file 
-            XSSFWorkbook workbook = new XSSFWorkbook (fileContent);
+        InasistenciaDAO faltas = new InasistenciaDAO();
+        ArrayList<Inasistencia> faltasAlumno;           
+        ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
 
-            //Get first sheet from the workbook
-            XSSFSheet sheet = workbook.getSheetAt(0);
+        String correo = "controlinasistencia@gmail.com";
+        String pass = "abcd14abcd";
+        String asunto = "Aviso de inasistencias";
+
+
+        for (Alumno alumno : arrayAlumnos) {
             
-            int rut_alumno;
-            String seccion;
-            Date fecha;
-            Inasistencia falta;
-            InasistenciaDAO inasistencias = new InasistenciaDAO();
-            for(Row fila : sheet )
-            {                
-                if(fila.getCell(0).getCellTypeEnum()==CellType.NUMERIC)
-                    rut_alumno = (int) fila.getCell(0).getNumericCellValue();                
-                else
-                    continue;
-                
-                seccion = fila.getCell(1).getStringCellValue();
-                
-                try { fecha = fila.getCell(3).getDateCellValue(); }
-                catch (Exception ex) { break; }
-                
-                falta=new Inasistencia(0,rut_alumno,seccion,fecha,0);
-                inasistencias.agregar(falta);                
+            faltasAlumno = faltas.buscarNuevos(alumno.getRutAlumno());
+            if(faltasAlumno.size()>0){
+                StringBuilder mensaje = new StringBuilder();
+                mensaje.append("Estimado Alumno\n");
+                mensaje.append(" Nuestro sistema registra que usted tiene inasistencias,");
+                mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+
+                for (Inasistencia falta : faltasAlumno) {
+                    mensaje.append(falta.getFecha());
+                    mensaje.append(" ");
+                    mensaje.append(falta.getIdSeccion());
+                    mensaje.append("\n");
+                    
+                    faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
+                }
+
+                mensaje.append("Saluda atentamente\n Coordinador.");
+
+                ControladorCorreo.Enviar(correo, pass, alumno.getEmail(), asunto, mensaje.toString());
             }
-            response.sendRedirect("SubirArchivo.jsp?mensaje=Inasistencias Agregadas exitosamente");
         }
-    
+        
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

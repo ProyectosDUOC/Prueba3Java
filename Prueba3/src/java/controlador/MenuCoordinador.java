@@ -29,7 +29,7 @@ public class MenuCoordinador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String opcion =  request.getParameter("opcion");
         
         if(opcion.equals("Subir Inasistencias")){
@@ -39,9 +39,8 @@ public class MenuCoordinador extends HttpServlet {
             response.sendRedirect("enviarCorreo.jsp");
         }
         if(opcion.equals("Ver datos")){
-            response.sendRedirect("datosCoordinador.jsp");
+            response.sendRedirect("reporteInasistencias.jsp");
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
