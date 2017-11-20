@@ -139,7 +139,7 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
                     ", glosa  = '" + justificacion.getGlosa() +
                     "', id_estadoj = " + justificacion.getIdEstadoj()  +
                     ", id_estadoc = " + justificacion.getIdEstadoc() +
-                    " where id_inasistencia = " + justificacion.getIdInasistencia() + " ";
+                    " where id_inasistencia = " + justificacion.getIdInasistencia() + ";";
             
             results = statement.executeUpdate(agregarSQL);
 
