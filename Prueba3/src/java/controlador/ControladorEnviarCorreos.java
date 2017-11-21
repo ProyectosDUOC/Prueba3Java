@@ -8,7 +8,11 @@ package controlador;
 import dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.persistence.Convert;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +44,10 @@ public class ControladorEnviarCorreos extends HttpServlet {
             InasistenciaDAO faltas = new InasistenciaDAO();
             ArrayList<Inasistencia> faltasAlumno;           
             ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
-
+            JustificacionDAO justificaciones = new JustificacionDAO();
+            Justificacion justi = new Justificacion();           
+            Date fechaActual = new Date();
+             
             String correo = "controlinasistencia@gmail.com";
             String pass = "abcd14abcd";
             String asunto = "Aviso de inasistencias";
@@ -51,7 +58,7 @@ public class ControladorEnviarCorreos extends HttpServlet {
                 faltasAlumno = faltas.buscarNuevos(alumno.getRutAlumno());
                 if(faltasAlumno.size()>0){
                     StringBuilder mensaje = new StringBuilder();
-                    mensaje.append("Estimado Alumno");
+                    mensaje.append("Estimado Alumno ");
                     mensaje.append(alumno.getPnombre());
                     mensaje.append(" ");
                     mensaje.append(alumno.getAppaterno());
@@ -64,8 +71,10 @@ public class ControladorEnviarCorreos extends HttpServlet {
                         mensaje.append(" ");
                         mensaje.append(falta.getIdSeccion());
                         mensaje.append("\n");
-
+                        
                         faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
+                        justi = new Justificacion(falta.getIdInasistencia(),fechaActual, 0," ", 0, 1);
+                        justificaciones.agregar(justi);
                     }
 
                     mensaje.append("Saluda atentamente\n Coordinador.");

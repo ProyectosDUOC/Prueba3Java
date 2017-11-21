@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Justificacion;
@@ -20,6 +22,7 @@ import modelo.Justificacion;
 public class JustificacionDAO implements GeneralJustificacionDAO {
 
     private ArrayList<Justificacion> arrayJustificaciones = new ArrayList<>();
+    private static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
     public ArrayList mostrarDatos() {
@@ -101,13 +104,25 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
         return obj;
     }
 
+    /* 
+        CREATE TABLE justificacion (
+    id_inasistencia   INT NOT NULL,
+    fecha_envio                    DATE,
+    id_motivo                      INT NOT NULL,
+    glosa                          VARCHAR(300),
+    id_estadoj                     INT NOT NULL,
+    id_estadoc                     INT NOT NULL,
+    PRIMARY KEY (id_inasistencia)
+);
+    
+     */
     @Override
     public int agregar(Justificacion justificacion) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
             Statement statement = connection.createStatement();
-            String agregarSQL = "INSERT INTO justificacion VALUES(" + justificacion.getIdInasistencia()+ ",'" + justificacion.getFechaEnvio() + "'," + justificacion.getIdMotivo() + ",'" + justificacion.getGlosa() + "'," + justificacion.getIdEstadoj() + "," + justificacion.getIdEstadoc()+");";
+            String agregarSQL = "INSERT INTO justificacion (id_inasistencia, fecha_envio, id_motivo, glosa, id_estadoj, id_estadoc) VALUES(" + justificacion.getIdInasistencia() + ",'" +  formatter.format(justificacion.getFechaEnvio()) + "'," + justificacion.getIdMotivo() + ",'" + justificacion.getGlosa() + "'," + justificacion.getIdEstadoj() + "," + justificacion.getIdEstadoc() + ");";
             int results = statement.executeUpdate(agregarSQL);
             connection.close();
             return results;
@@ -132,15 +147,15 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
             Statement statement = connection.createStatement();
- 
-            String agregarSQL = "UPDATE justificacion SET  " + 
-                    ", fecha_envio = " + justificacion.getFechaEnvio() + 
-                    ", id_motivo = "+ justificacion.getIdMotivo()  +
-                    ", glosa  = '" + justificacion.getGlosa() +
-                    "', id_estadoj = " + justificacion.getIdEstadoj()  +
-                    ", id_estadoc = " + justificacion.getIdEstadoc() +
-                    " where id_inasistencia = " + justificacion.getIdInasistencia() + ";";
-            
+
+            String agregarSQL = "UPDATE justificacion SET  "
+                    + ", fecha_envio = " + justificacion.getFechaEnvio()
+                    + ", id_motivo = " + justificacion.getIdMotivo()
+                    + ", glosa  = '" + justificacion.getGlosa()
+                    + "', id_estadoj = " + justificacion.getIdEstadoj()
+                    + ", id_estadoc = " + justificacion.getIdEstadoc()
+                    + " where id_inasistencia = " + justificacion.getIdInasistencia() + ";";
+
             results = statement.executeUpdate(agregarSQL);
 
             connection.close();
@@ -151,6 +166,10 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
         }
 
         return results;
+    }
+
+    private String formatter(Date fechaEnvio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
