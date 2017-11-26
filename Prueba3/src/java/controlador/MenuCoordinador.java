@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,6 +41,11 @@ public class MenuCoordinador extends HttpServlet {
         }
         if(opcion.equals("Ver datos")){
             response.sendRedirect("reporteInasistencias.jsp");
+        }
+        
+        if(opcion.equals("Salir")){
+            request.getSession().invalidate();
+            response.sendRedirect("index.jsp");
         }
     }
 

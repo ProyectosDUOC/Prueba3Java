@@ -37,6 +37,7 @@ h1{
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 200px;
 }
 
 .mensaje{
@@ -46,4 +47,16 @@ h1{
     font-weight: normal;
     text-align: right;
     width: 85px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 4px solid #DADADA;
+}
+
+th {
+    color: #254C6C;
 }

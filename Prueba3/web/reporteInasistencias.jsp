@@ -4,12 +4,17 @@
     Author     : carlos
 --%>
 
+<%@page import="modelo.ControlUsuario"%>
+<%@page import="dao.ClasesConsultas" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <% ControlUsuario user = (ControlUsuario) session.getAttribute("usuario"); %>
+        <% if(user==null) response.sendRedirect("error.jsp");%>
     </head>
     <body>
         <h1>Reporte Inasistencias</h1>
@@ -66,8 +71,6 @@
                 </c:forEach>
             </tbody>
         </table>
-
-
-        <a href="Director.jsp">Volver</a>
+            <a class="boton" href="${sessionScope.tipoUsuario}.jsp">Volver</a>
     </body>
 </html>

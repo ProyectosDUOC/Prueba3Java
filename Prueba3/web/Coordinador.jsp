@@ -18,6 +18,7 @@
             <input class="boton" type="submit" name="opcion" value="Subir Inasistencias"/>
             <input class="boton" type="submit" name="opcion" value="Enviar Correos"/>
             <input class="boton" type="submit" name="opcion" value="Ver datos"/>
+            <input class="boton" type="submit" name="opcion" value="Salir"/>
         </form></div>
     </body>
 </html>

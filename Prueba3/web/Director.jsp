@@ -10,13 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body>
+    <body><div class="marco">
         <h1>Director de Carrera</h1>
         <form method="POST" action="ControladorDirector">
-            <input type="submit" value="Reporte por Semestre" name="Opcion" />
-            <input type="submit" value="Acceder" name="Opcion" />
-            <input type="submit" value="Checkeado por docente" name="Opcion" />
-        </form>
+            <input class="boton" type="submit" value="Reporte por Semestre" name="Opcion" />
+            <input class="boton" type="submit" value="Acceder" name="Opcion" />
+            <input class="boton" type="submit" value="Checkeado por docente" name="Opcion" />
+        </form></div>
     </body>
 </html>
