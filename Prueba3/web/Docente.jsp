@@ -57,7 +57,7 @@
             </button>
             <h3 class="black-text">Datos Alumno</h3>               
             <ul>
-                <li class="amber darken-3 black-text">Nombre: <%=docente.getPnombre() + " " + docente.getAppaterno() + " " + alu.getApmaterno()%></li>
+                <li class="amber darken-3 black-text">Nombre: <%=docente.getPnombre() + " " + docente.getAppaterno() + " " + docente.getApmaterno()%></li>
                 <li class="amber darken-3 black-text">Rut: <%=docente.getRutDocente() + "-" + docente.getDvDocente()%></li>
             </ul>
             <h1> <%=docente.getRutDocente()%> - <%=docente.getPnombre()%>  </h1>
