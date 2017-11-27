@@ -27,7 +27,7 @@
                     <tr>
                         <td>
                             <p>Clic para enviar correos</p>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="Opcion" value="Enviar">Enviar</button>
+                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Enviar">Enviar</button>
                         </td>
                     </tr>
                     <tr>

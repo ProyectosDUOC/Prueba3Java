@@ -15,25 +15,41 @@
         <title>Justificacion</title>
     </head>
     <body>
-        <form>
+        <%
+            String idInasistencia= request.getParameter("id");
+            session.setAttribute("inaActual", idInasistencia);
+        %>
+
+        <form action="ControladorJustificar" method="post">
             <h1>Justificacion</h1>
             <table>
-            <select name="motivo"  required="required">
-                <option value="" disabled selected>Motivo</option>                    
-                <%
-                    ArrayList<Motivo> motivos = new ArrayList();
-                    motivos = new ClasesConsultas().mostrarMotivos();
-                    for (Motivo mot : motivos) {
-                        if (mot.getIdMotivo() != 0) {
-                %>
-                <option value="<%=mot.getIdMotivo()%>" >
-                    <%= mot.getNombreMotivo()%>
-                </option>
-                <% }
-                    }%>
-            </select>
-            <textarea name="glosa" rows="10" cols="30"></textarea>
+                <tr>
+                    <td>Motivo:</td>
+                    <td>
+                        <select name="motivo"  required="required">
+                            <option value="" disabled selected>Motivo</option>                    
+                            <%                                ArrayList<Motivo> motivos = new ArrayList();
+                                motivos = new ClasesConsultas().mostrarMotivos();
+                                for (Motivo mot : motivos) {
+                                    if (mot.getIdMotivo() != 0) {
+                            %>
+                            <option value="<%=mot.getIdMotivo()%>" >
+                                <%= mot.getNombreMotivo()%>
+                            </option>
+                            <%      }
+                                }
+                            %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Glosa:</td>
+                    <td><textarea name="glosa" rows="10" cols="30"></textarea></td>
+                </tr>
             </table>
+            <button class="btn waves-effect waves-light" type="submit" name="opcion" value="Guardar">
+                Guardar
+            </button>
         </form>
     </body>
 </html>

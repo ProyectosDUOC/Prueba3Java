@@ -26,22 +26,22 @@
                 <table border="1">
                     <tr>
                         <td>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="Opcion" value="Subir Inasistencias">Subir Inasistencias</button>
+                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Subir Inasistencias">Subir Inasistencias</button>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="Opcion" value="Enviar Correos">Enviar Correos</button>
+                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Enviar Correos">Enviar Correos</button>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="Opcion" value="Ver datos">Ver datos</button> 
+                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Ver datos">Ver datos</button> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="Opcion" value="Salir">Salir</button>
+                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Salir">Salir</button>
                         </td>
                     </tr>
                 </table>
