@@ -42,7 +42,6 @@ public class ControladorDirector extends HttpServlet {
         }
         if (opcion.equalsIgnoreCase("Reporte por Semestre")) {
              response.sendRedirect("reportesPDFsemestre.jsp");
-           // response.sendRedirect("reportesSemestrales.jsp?anio=2017&sem=2");
         }
         if (opcion.equalsIgnoreCase("Enviar")) {
             String semestre="2", anio = "2017";
