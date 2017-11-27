@@ -72,7 +72,7 @@
                     <tr>
                         <% for (Seccion seccionP:  seccionesProfe ) {
                            if (falta.getIdSeccion().equals(seccionP.getIdSeccion())) { %>
-                                   <%=falta.getRutAlumno() %>
+                           <th> <%=falta.getRutAlumno() %></th>  
                               <% }                            
                            }
                         %>
