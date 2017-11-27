@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Justificacion;
+
 
 /**
  *
@@ -35,20 +35,44 @@ public class ControladorJustificar extends HttpServlet {
             throws ServletException, IOException {
         
         String opcion = request.getParameter("opcion");
-        String motivo = request.getParameter("motivo");
+        String motivo = "";
         String glosa = request.getParameter("glosa");
         String idInasistencia = (String) request.getSession().getAttribute("inaActual");
         
+         String[] miselect = request.getParameterValues("motivo");
+                for (int i = 0; i < miselect.length; i++) {
+                   motivo = miselect[i];
+                }
+        
+        
         if(opcion.equals("Guardar")){
-            int idMotivo = Integer.parseInt(motivo);
+            int idMotivo = Integer.parseInt(motivo);     
             int idIna = Integer.parseInt(idInasistencia);
-            Date fechaEnvio = new Date();
-            Justificacion just = new Justificacion(idIna, fechaEnvio, idMotivo, glosa, 1, 1);
-            (new JustificacionDAO()).agregar(just);
-            Inasistencia ina = (new InasistenciaDAO()).buscar(idIna);
-            ina.setIdEstadoi(2);
-            (new InasistenciaDAO()).actualizar(ina);
-            response.sendRedirect("Alumno.jsp");
+            Date fecha = new Date();
+            glosa = fecha.toString()+ ": "+glosa;
+            (new JustificacionDAO()).actualizarJustificacion(idIna, idMotivo, glosa, 1);
+            (new InasistenciaDAO()).actualizarEnviadoAlumnos(idIna,2);   
+            Inasistencia inasistencia = new InasistenciaDAO().buscar(idIna);
+            Seccion seccion = new ClasesConsultas().buscarSeccion(inasistencia.getIdSeccion());
+            Docente docente = new DocenteDAO().buscarDatos(seccion.getRutDocente());
+            
+            String asunto = "Inasistencia Justificada Por Alumno";
+            StringBuilder mensaje = new StringBuilder();                   
+                    mensaje.append("Estimado Profesor ");
+                    mensaje.append(docente.getPnombre());
+                    mensaje.append(" ");
+                    mensaje.append(docente.getAppaterno());
+                    mensaje.append("\n");
+                    mensaje.append(" Nuestro sistema aca de tener un registro de inasistencia por el alumno ");
+                    mensaje.append(" RUT: ");
+                    mensaje.append(inasistencia.getRutAlumno());
+                    mensaje.append(" de la Seecion ");
+                    mensaje.append(seccion);                    
+                    mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+           
+            (new ControladorCorreo()).EnviarProfesor(docente.getEmail(), mensaje.toString(),asunto);
+            
+            response.sendRedirect("Alumno.jsp");     
         }
         
     }

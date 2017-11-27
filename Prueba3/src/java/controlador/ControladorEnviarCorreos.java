@@ -40,7 +40,6 @@ public class ControladorEnviarCorreos extends HttpServlet {
         String opcion = request.getParameter("opcion");
         
         if(opcion.equals("Enviar")){
-
             InasistenciaDAO faltas = new InasistenciaDAO();
             ArrayList<Inasistencia> faltasAlumno;           
             ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();

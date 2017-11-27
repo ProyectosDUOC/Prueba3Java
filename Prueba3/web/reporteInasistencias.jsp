@@ -78,8 +78,6 @@
                 </c:forEach>
             </tbody>
         </table>
-
-
         <a  class="white-text btn-large  waves-effect waves-light  red" href="${sessionScope.tipoUsuario}.jsp">Volver</a>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>

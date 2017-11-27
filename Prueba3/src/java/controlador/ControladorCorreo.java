@@ -65,36 +65,16 @@ public class ControladorCorreo {
         }
         return 1;
     }
-
-    public static int EnviarMensaje(String[] resultado, int motivo) {
-        String Username = "pbdchatsoporte@gmail.com";
-        String PassWord = "abcd14abcd";
-        String Subject = "";
-        String Mensaje = "";
+      public static int EnviarProfesor(String CorreoProfesor, String mensaje, String asunto) {
+        String Username = "controlinasistencia@gmail.com";
+        String PassWord = "abcd14abcd";      
+        String Subject = asunto;
+        String Mensaje = mensaje;
         Date date = new Date();
 
         DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 
-        String To = resultado[2]; //correo destinatario
-        if (motivo == 0) //recuperacion de clave
-        {
-            Subject = "Solicitud de recuperación de contraseña (PDB CHAT)"; //
-            Mensaje = "Has solicitado la recuperación de tu contraseña "
-                    + "Si no solicitaste esto, ignora este correo electrónico \n \n CHAT PDB "
-                    + "\n Solicitud realizada a las  " + hourdateFormat.format(date)
-                    + "\n \n Usuario: " + resultado[0]
-                    + "\n Contraseña: " + resultado[1]
-                    + "\n \n                Atentamente SOPORTE CHAT PBD";
-        }
-        if (motivo == 1) // new registro
-        {
-            Subject = "Gracias por registrarte a PBD CHAT  -"; //
-            Mensaje = "Te has registro de CHAT PBD "
-                    + "\n Solicitud del registro realizada a las  " + hourdateFormat.format(date)
-                    + "\n \n Usuario: " + resultado[0]
-                    + "\n Contraseña: " + resultado[1]
-                    + "\n \n Atentamente SOPORTE CHAT PBD";
-        }
+        String To = CorreoProfesor; //correo destinatario       
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -121,7 +101,7 @@ public class ControladorCorreo {
             message.setText(Mensaje);
 
             Transport.send(message);
-            
+
         } catch (MessagingException e) {
             return -1;
         }

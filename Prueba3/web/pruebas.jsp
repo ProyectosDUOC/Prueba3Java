@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
+        <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix="sql"   uri="http://java.sun.com/jstl/sql" %>
 
 
@@ -37,17 +37,17 @@
                 </c:forEach>
         </UL>
 
-              <select name="motivos">
-                    <option value="" disabled selected>Seleccion un motivo</option>                    
-                    <%
-                        ArrayList<Alumno> arrayMotivos = new ArrayList();
-                        arrayMotivos = new AlumnoDAO().mostrarDatos();
-                        for (Alumno mot : arrayMotivos) {
-                    %>                    
-                    <option value="<%= mot.getRutAlumno()%>" > <%= mot.getPnombre()%> </option>                    
+        <select name="motivos">
+            <option value="" disabled selected>Seleccion un motivo</option>                    
+            <%
+                ArrayList<Alumno> arrayMotivos = new ArrayList();
+                arrayMotivos = new AlumnoDAO().mostrarDatos();
+                for (Alumno mot : arrayMotivos) {
+            %>                    
+            <option value="<%= mot.getRutAlumno()%>" > <%= mot.getPnombre()%> </option>                    
 
-                    <%   }
-                    %>
-                </select>   
+            <%   }
+            %>
+        </select>   
     </body>
 </html>
