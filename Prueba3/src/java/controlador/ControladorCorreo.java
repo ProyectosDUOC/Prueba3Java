@@ -125,7 +125,7 @@ public class ControladorCorreo {
      
         InasistenciaDAO faltas = new InasistenciaDAO();
         Justificacion justi = new Justificacion();
-        ArrayList<Inasistencia> faltasAlumno;
+        //ArrayList<Inasistencia> faltasAlumno;
         ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
         
         faltasAlumno = faltas.mostrarInjustificadas();
@@ -161,7 +161,7 @@ public class ControladorCorreo {
 
                     faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
                     justi = new Justificacion(falta.getIdInasistencia(), fechaActual, 0, " ", 0, 1);
-                    justificaciones.agregar(justi);
+                  //  justificaciones.agregar(justi);
                 }
 
                 mensaje.append("Saluda atentamente\n Coordinador.");
