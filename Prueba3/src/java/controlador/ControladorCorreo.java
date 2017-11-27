@@ -126,9 +126,8 @@ public class ControladorCorreo {
         InasistenciaDAO faltas = new InasistenciaDAO();
         Justificacion justi = new Justificacion();
         //ArrayList<Inasistencia> faltasAlumno;
-        ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
+        ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();        
         
-        faltasAlumno = faltas.mostrarInjustificadas();
         
         
         

@@ -68,11 +68,12 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
 
     public ArrayList mostrarInjustificadas() {
         try {
+            Date fechaActual = new Date();
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
             Statement statement = connection.createStatement();
-
+            
             String consultaSQL = "SELECT * FROM inasistencia where id_estadoi=0;";
 
             ResultSet results = statement.executeQuery(consultaSQL);
