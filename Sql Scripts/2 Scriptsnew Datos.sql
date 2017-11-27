@@ -25,7 +25,7 @@ INSERT INTO alumno VALUES(21,'1','Benjamin','Elias','Mora','Torres','b.morat@alu
 INSERT INTO alumno VALUES(22,'1','Jack','Johnny','Sparow','Deep','car.orellanaa@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(23,'1','Steve','John','Rogers','Storm','s.orregoa@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(24,'1','Carlos','Alberto','Orellana','Aguayo','car.orellanaa@alumnos.duoc.cl','14460-03');
-INSERT INTO alumno VALUES(25,'1','Sebastian',' ','Orrego','Aguayo','s.orregoa@alumnos.duoc.cl','14460-03');
+INSERT INTO alumno VALUES(25,'1','Sebastian','Isaac','Orrego','Aguayo','s.orregoa@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(26,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(27,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');
 INSERT INTO alumno VALUES(28,'1','Benjamin','Elias','Mora','Torres','b.morat@alumnos.duoc.cl','14460-03');

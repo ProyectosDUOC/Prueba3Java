@@ -47,25 +47,25 @@ Problema	Cantidad de alumnos
 
     
 # Requerimientos Funcionales
-+ RF1	Cargar la tabla inasistencias desde un archivo de entrada de datos en Excel.
-+ RF2	Login para controlar el ingreso de coordinador, profesor, alumno y director de carrera. (JSP, Servlet, log)
-+ RF3	Menú con sistema claro de acceso a acciones según el perfil.  (JSP)
-+ RF4	Enviar mails en “lotes”, a todos los alumnos que no tengas cerrado el proceso de “justificación” de inasistencia. (coordinador)
++ RF1	Cargar la tabla inasistencias desde un archivo de entrada de datos en Excel. ✓
++ RF2	Login para controlar el ingreso de coordinador, profesor, alumno y director de carrera. (JSP, Servlet, log) ✓
++ RF3	Menú con sistema claro de acceso a acciones según el perfil.  (JSP) ✓
++ RF4	Enviar mails en “lotes”, a todos los alumnos que no tengas cerrado el proceso de “justificación” de inasistencia. (coordinador) ✓
 + RF5	Justificar inasistencias, seleccionado una de las expuestas en la tabla1, Una justificación por cada inasistencia. (alumno)
 + RF6	Una vez justificada la inasistencia debe llegar una notificación (correo) al docente del ramo, así estará en conocimiento sobre      la situación de su alumno.
 + RF7	El docente debe dar un check a la lectura de cada justificación y guardar el estado, de esta manera cierra el ciclo y no será + enviada la inasistencia en un siguiente proceso.
 + RF8	Después de una semana de enviar los mails a los alumnos, se debe hacer un segundo envío, a todos los alumnos que no justificaron.
 + RF9	Revisar la fecha de justificación de los alumnos y si después de 3 días no ha sido cerrado el ciclo se debe reenviar un correo al docente insistiendo que haga el check del estado.
-+ RF10	Crear los CRUD correspondientes según la tablas.  (DAO, servlet, Entity)
-+ RF11	Reporte de alumnos con inasistencia justificadas, por pantalla. (JSTL )(director de carrera)
-+ RF12	Reporte de inasistencias chequeadas por el docente, en PDF. ((JSTL )(director de carrera)
++ RF10	Crear los CRUD correspondientes según la tablas.  (DAO, servlet, Entity) ✓
++ RF11	Reporte de alumnos con inasistencia justificadas, por pantalla. (JSTL )(director de carrera) ✓
++ RF12	Reporte de inasistencias chequeadas por el docente, en PDF. ((JSTL )(director de carrera) ✓
 + RF13	Reporte estadístico según la tabla 1, según los alumnos de un semestre específico.  (JSTL )(director de carrera)
-+ RF14	Diseño de estructura de base de datos que dé solución a los requerimientos planteados y su script correspondiente.
++ RF14	Diseño de estructura de base de datos que dé solución a los requerimientos planteados y su script correspondiente. ✓
 
 # Requerimientos No Funcionales
-* RNF1	El sistema debe ser WEB.
-* RNF2	IDE de desarrollo NetBeans.
-* RNF3	Motor de base de datos MySql
-* RNF4	Página principal  y clara navegación entre páginas.
+* RNF1	El sistema debe ser WEB. ✓
+* RNF2	IDE de desarrollo NetBeans. ✓
+* RNF3	Motor de base de datos MySql ✓
+* RNF4	Página principal  y clara navegación entre páginas. ✓
 * RNF5	Diseño de páginas con Framework materialize.
-* RNF6	Reportes en pantalla y en PDF.
+* RNF6	Reportes en pantalla y en PDF. ✓
