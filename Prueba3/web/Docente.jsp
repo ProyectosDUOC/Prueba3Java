@@ -51,7 +51,7 @@
     </head>
     <body>
         <div class="container">
-            <form action="action" method="POST">
+            <form action="ControladorDocente" method="POST">
                 <h1 class="yellow darken-1 center-align">Docente</h1>
                 <button class="btn waves-effect waves-light red right" type="submit" name="opcion" value="Salir">
                     Cerrar Sesion

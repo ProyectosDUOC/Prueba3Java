@@ -31,18 +31,16 @@ public class ControladorDocente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControldorDocente</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControldorDocente at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String opcion  =  request.getParameter("opcion");
+        
+        if(opcion.equals("Salir")){
+            request.getSession().invalidate();
+            response.sendRedirect("index.jsp");
+        }
+        
+        if(opcion.charAt(0)=='j'){
+            int idJust = Integer.parseInt(opcion.substring(1));
+            response.sendRedirect("VerJustificion.jsp?id="+idJust);
         }
     }
 
