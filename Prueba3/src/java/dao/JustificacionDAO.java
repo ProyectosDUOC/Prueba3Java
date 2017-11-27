@@ -67,7 +67,50 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
         }
         return arrayJustificaciones;
     }
+    
+    
+     public ArrayList mostrarNoJustificadas() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
+            Statement statement = connection.createStatement();
+
+            String consultaSQL = "SELECT * FROM justificacion where id_estadoJ=0;";
+
+            ResultSet results = statement.executeQuery(consultaSQL);
+
+            int idIna, idMotivo, idEstadoJ, idEstadoC;
+            Date fecha_envio;
+            String glosa;
+
+            /* CREATE TABLE justificacion (
+                id_inasistencia   INT NOT NULL,
+                fecha_envio                    DATE,
+                id_motivo                      INT NOT NULL,
+                glosa                          VARCHAR(300),
+                id_estadoj                     INT NOT NULL,
+                id_estadoc                     INT NOT NULL,
+                PRIMARY KEY (id_inasistencia)
+);
+             */
+            arrayJustificaciones.removeAll(arrayJustificaciones);
+            while (results.next()) {
+                idIna = results.getInt("id_inasistencia");
+                fecha_envio = results.getDate("fecha_envio");
+                idMotivo = results.getInt("id_motivo");
+                glosa = results.getString("glosa");
+                idEstadoJ = results.getInt("id_estadoj");
+                idEstadoC = results.getInt("id_estadoc");
+
+                arrayJustificaciones.add(new Justificacion(idIna, fecha_envio, idMotivo, glosa, idEstadoJ, idEstadoC));
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayJustificaciones;
+    }
     @Override
     public Justificacion buscarDatos(int id) {
         Justificacion obj = null;

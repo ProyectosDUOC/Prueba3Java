@@ -117,10 +117,14 @@ public class ControladorCorreo {
     }
 
     public static void ChequeoAlumnos() {
-
+        //enviarme mensaje a todos los correo no enviado
+        
         DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-
+        ArrayList<Inasistencia> faltasAlumno = (new InasistenciaDAO().mostrarInjustificadas());
+        
+     
         InasistenciaDAO faltas = new InasistenciaDAO();
+        Justificacion justi = new Justificacion();
         ArrayList<Inasistencia> faltasAlumno;
         ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
         
@@ -128,7 +132,7 @@ public class ControladorCorreo {
         
         
         
-        Justificacion justi = new Justificacion();
+        
         Date fechaActual = new Date();
 
         String correo = "controlinasistencia@gmail.com";
