@@ -13,12 +13,7 @@
     </head>
     <body>
         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
-        <%@ taglib prefix="sql"   uri="http://java.sun.com/jstl/sql" %>
-
-        <select name="semestre">
-            
-        </select>
-
+        <%@ taglib prefix="sql"   uri="http://java.sun.com/jstl/sql" %>      
         <sql:setDataSource
             driver="com.mysql.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/instituto"
@@ -50,8 +45,7 @@
             id_inasistencia
             from 
             instituto.alumno join instituto.detalle_seccion using(rut_alumno) join instituto.inasistencia using(rut_alumno) 
-            where 
-            anio = 2017 and semestre= 2    
+            ${filtro}  
             group by id_inasistencia)     group by id_motivo);
 
         </sql:query>    

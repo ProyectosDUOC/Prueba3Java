@@ -41,13 +41,27 @@ public class ControladorDirector extends HttpServlet {
             response.sendRedirect("reportesInaDocentes.jsp");
         }
         if (opcion.equalsIgnoreCase("Reporte por Semestre")) {
-            response.sendRedirect("reportesSemestrales.jsp?anio=2017&sem=2");
+             response.sendRedirect("reportesPDFsemestre.jsp");
+           // response.sendRedirect("reportesSemestrales.jsp?anio=2017&sem=2");
         }
-        
+        if (opcion.equalsIgnoreCase("Enviar")) {
+            String semestre="2", anio = "2017";
+            
+            String[] miselect = request.getParameterValues("semestre");
+                for (int i = 0; i < miselect.length; i++) {
+                    semestre = miselect[i];
+                }
+            String[] miselect1 = request.getParameterValues("anio");
+                for (int i = 0; i < miselect1.length; i++) {
+                    anio = miselect1[i];
+                }
+            response.sendRedirect("reportesSemestrales.jsp?anio="+anio+"&sem="+semestre);
+        }
         if(opcion.equals("Salir")){
             request.getSession().invalidate();
             response.sendRedirect("index.jsp");
         }
+      
         
         
         try (PrintWriter out = response.getWriter()) {
