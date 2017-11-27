@@ -47,6 +47,7 @@
                         <td><%=falta.getFecha()%></td>
                         <td><%=consultaBD.buscarEstadoInasistencia(falta.getIdEstadoi()).getNombreEstadoi() %></td>
                         <td>
+                            <% if(falta.getIdEstadoi()==0){ %>
                             <button 
                                 class="btn waves-effect waves-light" 
                                 type="submit" 
@@ -54,11 +55,12 @@
                                 value="j<%=falta.getIdInasistencia()%>"> 
                                 Justificar 
                             </button>
+                            <%} %>
                         </td>
                     </tr>
                 <% }%>
             </table>
-            <button class="btn waves-effect waves-light" type="submit" name=“opcion" value="Salir">
+            <button class="btn waves-effect waves-light" type="submit" name="opcion" value="Salir">
                 Salir
             </button>
         </form>
