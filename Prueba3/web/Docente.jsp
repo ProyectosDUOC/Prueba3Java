@@ -88,7 +88,19 @@
                         <% } %>
                     </tr>
                     <% }%>
-                </table>    
+                </table>
+            <form action="" method="POST">
+            <h1 class="yellow darken-1 center-align">Docente</h1>
+            <button class="btn waves-effect waves-light red right" type="submit" name="opcion" value="Salir">
+                Cerrar Sesion
+            </button>
+            <h3 class="black-text">Datos Docente</h3>               
+            <ul>
+                <li class="amber darken-3 black-text">Nombre: <%=docente.getPnombre() + " " + docente.getAppaterno() + " " + docente.getApmaterno()%></li>
+                <li class="amber darken-3 black-text">Rut: <%=docente.getRutDocente() + "-" + docente.getDvDocente()%></li>
+            </ul>
+            
+>>>>>>> 750bc552ff2980f5519e68a23505e5f0d0096a4b
             </form>
         </div>       
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
