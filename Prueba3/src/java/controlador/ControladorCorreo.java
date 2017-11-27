@@ -119,8 +119,6 @@ public class ControladorCorreo {
 
     public static void ChequeoAlumnos() {
         //enviarme mensaje a todos los correo no enviado
-
-        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         ArrayList<Inasistencia> faltasAlumno = (new InasistenciaDAO().mostrarInjustificadas());       
         Date fechaActual = new Date();    
         Date fechaEmision; 
