@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
+        <h1>Sistema Asistencia</h1>
         <div id="main">
         <h1>Ingresa acá</h1>
         <form action="Login" method="post">

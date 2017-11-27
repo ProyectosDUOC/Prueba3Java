@@ -19,11 +19,6 @@
         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix="sql"   uri="http://java.sun.com/jsp/jstl/sql" %>
         
-        <% ControlUsuario user = (ControlUsuario) session.getAttribute("usuario"); %>
-        <% if(user==null) response.sendRedirect("error.jsp");%>
-        <% String profe = user.getRutUsuario().toString(); %>
-        <c:set var="filtro" value="where rut_docente=${profe}"/>
-        
         <form name="reporte" action="ControladorPDF">
         <h1>Reporte Inasistencias</h1>
 
@@ -41,7 +36,6 @@
             JOIN justificacion using(id_inasistencia)
             JOIN motivo using(id_motivo)
             JOIN estado_inasistencia using(id_estadoi)
-            ${filtro}
             order by rut_docente;
         </sql:query>
         <table border="1">

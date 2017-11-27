@@ -13,14 +13,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alumno</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        
         <% ControlUsuario user = (ControlUsuario) session.getAttribute("usuario"); %>
         <% if(user==null) response.sendRedirect("error.jsp");%>
         <% int rutAlumno = user.getRutUsuario(); %>
         <% session.setAttribute("rutAlumno",rutAlumno+""); %>
         <% Alumno alu = (new AlumnoDAO()).buscarDatos(rutAlumno); %>
-        <% if(alu==null) response.sendRedirect("error.jsp");%><
+        <% if(alu==null) response.sendRedirect("error.jsp");%>
     </head>
-    <body><div class="marco">
+    <body>
         <h1>Menu Alumno</h1>
         
         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
@@ -46,8 +47,8 @@
             ${filtro}
             order by rut_docente;
         </sql:query>
-        
-        <form action="MenuAlumno" method="post" >
+            
+        <form action="ControladorAlumno" method="post" >
             <h2>Datos Alumno</h2>
             <ul>
                 <li>Nombre: <%=alu.getPnombre()+" "+alu.getAppaterno()+" "+alu.getApmaterno() %></li>
@@ -68,11 +69,11 @@
                         <td>${row.nombre_motivo}</td>
                         <td>${row.glosa}</td>
                         <td>${row.nombre_estadoi}</td>
-                        <td><input class="boton" type="submit" name="${row.id_inasistencia}" value="Justificar" /></td>
+                        <td><input class="boton" type="submit" name="${row.id_inasistencia}" value="" /></td>
                     </tr>
                 </c:forEach>
             </table>
             <input class="boton" type="submit" name="opcion" value="Salir"/>
-        </form></div>
+        </form>
     </body>
 </html>
