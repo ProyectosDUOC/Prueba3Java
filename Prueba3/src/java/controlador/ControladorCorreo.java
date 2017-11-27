@@ -122,6 +122,11 @@ public class ControladorCorreo {
         DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         ArrayList<Inasistencia> faltasAlumno = (new InasistenciaDAO().mostrarInjustificadas());
         
+        for (Inasistencia xx: faltasAlumno){
+            if (true) {
+                
+            }
+        }
      
         InasistenciaDAO faltas = new InasistenciaDAO();
         Justificacion justi = new Justificacion();
