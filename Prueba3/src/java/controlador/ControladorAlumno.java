@@ -30,11 +30,16 @@ public class ControladorAlumno extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String opcion =  request.getParameter("opcion");
+        String opcion  =  request.getParameter("opcion");
         
         if(opcion.equals("Salir")){
             request.getSession().invalidate();
             response.sendRedirect("index.jsp");
+        }
+        
+        if(opcion.charAt(0)=='j'){
+            int idJust = Integer.parseInt(opcion.substring(1));
+            response.sendRedirect("Justificar.jsp?id="+idJust);
         }
     }
 
