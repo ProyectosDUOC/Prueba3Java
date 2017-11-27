@@ -20,13 +20,13 @@
         <div class="container">
             <h1>Reporte por año y semestre especifico</h1>
             <form action="ControladorDirector" method="POST">
-                <table border="1">   
+                <table border="1" class="Black">   
                     <tr>
                         <td>Semestre</td>
                         <td>Año</td>
                     </tr>
                     <tr>
-                        <td>
+                        <td>sdfsdfsdf
                             <select name="semestre" required="required">
                                 <option value="" disabled selected>Seleccione Semestre</option>
                                 <option value="1">1</option>
