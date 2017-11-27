@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -118,62 +119,42 @@ public class ControladorCorreo {
 
     public static void ChequeoAlumnos() {
         //enviarme mensaje a todos los correo no enviado
-        
-        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-        ArrayList<Inasistencia> faltasAlumno = (new InasistenciaDAO().mostrarInjustificadas());
-        
-        for (Inasistencia xx: faltasAlumno){
-            if (true) {
-                
-            }
-        }
-     
-        InasistenciaDAO faltas = new InasistenciaDAO();
-        Justificacion justi = new Justificacion();
-        //ArrayList<Inasistencia> faltasAlumno;
-        ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();        
-        
-        
-        
-        
-        
-        Date fechaActual = new Date();
 
+        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+        ArrayList<Inasistencia> faltasAlumno = (new InasistenciaDAO().mostrarInjustificadas());       
+        Date fechaActual = new Date();    
+        Date fechaEmision; 
+        long duracion;
+        ArrayList<Alumno> listaAlumnos = (new AlumnoDAO().mostrarDatos()); 
+        
+        for (Inasistencia xx : faltasAlumno) {
+            fechaEmision = xx.getFecha();
+            duracion = fechaActual.getTime() - fechaEmision.getTime();
+            long horas = TimeUnit.MILLISECONDS.toHours(duracion);
+            if ((horas/24)>=7) {
+                for (Alumno alum: listaAlumnos){
+                    if (alum.getRutAlumno() == xx.getRutAlumno()) { //solo para buscar el correo
+                        
+                        StringBuilder mensaje = new StringBuilder();
+                        mensaje.append("Estimado Profesor ");
+                        mensaje.append(alum.getPnombre());
+                        mensaje.append(" ");
+                        mensaje.append(alum.getAppaterno());
+                        mensaje.append("\n");
+                        mensaje.append(" Nuestro sistema registra que usted tiene inasistencias, y que no ha respondido hace una semana");
+                        mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+                    }
+                }
+                //RF8	Después de una semana de enviar los mails a los alumnos,
+                //se debe hacer un segundo envío, a todos los alumnos que no justificaron.
+                
+            }            
+        }
         String correo = "controlinasistencia@gmail.com";
         String pass = "abcd14abcd";
         String asunto = "Reenvio: Aviso de inasistencias";
-        
-        
-        for (Alumno alumno : arrayAlumnos) {
 
-            faltasAlumno = faltas.buscarNuevos(alumno.getRutAlumno());
-            if (faltasAlumno.size() > 0) {
-                StringBuilder mensaje = new StringBuilder();
-                mensaje.append("Estimado Alumno ");
-                mensaje.append(alumno.getPnombre());
-                mensaje.append(" ");
-                mensaje.append(alumno.getAppaterno());
-                mensaje.append("\n");
-                mensaje.append(" Nuestro sistema registra que usted tiene inasistencias pendientes que aun no ha repondido,");
-                mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
-
-                for (Inasistencia falta : faltasAlumno) {
-                    mensaje.append(falta.getFecha());
-                    mensaje.append(" ");
-                    mensaje.append(falta.getIdSeccion());
-                    mensaje.append("\n");
-
-                    faltas.actualizarEnviadoAlumnos(falta.getIdInasistencia(), 1);
-                    justi = new Justificacion(falta.getIdInasistencia(), fechaActual, 0, " ", 0, 1);
-                  //  justificaciones.agregar(justi);
-                }
-
-                mensaje.append("Saluda atentamente\n Coordinador.");
-
-                ControladorCorreo.Enviar(correo, pass, alumno.getEmail(), asunto, mensaje.toString());
-            }
-        }
-           
+       
     }
 
 }
