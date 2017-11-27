@@ -14,10 +14,17 @@
         <title>Inasistencia por alumno</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <% ControlUsuario user = (ControlUsuario) session.getAttribute("usuario"); %>
-        <% if(user==null) response.sendRedirect("error.jsp");%>
+        <% if (user == null) {
+                response.sendRedirect("error.jsp");
+            }%>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style1.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-        <h1>Reporte Inasistencias</h1>
+        <h1 class="yellow darken-1 center-align">Reporte Inasistencias</h1>
 
         <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core"%>
         <%@ taglib prefix="sql"   uri="http://java.sun.com/jstl/sql" %>
@@ -32,8 +39,9 @@
         <sql:query var="reportes">
             select  * from justificacion JOIN inasistencia using(id_inasistencia) JOIN alumno using (rut_alumno) join motivo USING(id_motivo) where id_estadoj = 1;
         </sql:query>
-
-        <table border="1">
+        <a  class="white-text btn  waves-effect waves-light  red" href="${sessionScope.tipoUsuario}.jsp">Volver</a>
+        
+        <table border="1" class=" grey lighten-2">
             <thead>
                 <tr>
                     <th>Rut Alumno</th> 
@@ -71,6 +79,11 @@
                 </c:forEach>
             </tbody>
         </table>
-            <a class="boton" href="${sessionScope.tipoUsuario}.jsp">Volver</a>
+
+
+        <a  class="white-text btn-large  waves-effect waves-light  red" href="${sessionScope.tipoUsuario}.jsp">Volver</a>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
     </body>
 </html>
