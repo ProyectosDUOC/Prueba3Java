@@ -49,15 +49,13 @@
                     </tr>
                     <tr>
                         <td>Glosa: <i class="material-icons prefix">textsms</i></td>                       
-                        <td><div class="row">
-                                <form class="col s12">
+                        <td><div class="row">                                
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <textarea name="glosa" rows="10" cols="30" id="textarea1" class="materialize-textarea" required="required"></textarea>
                                             <label for="textarea1">Comente sus motivos</label>
                                         </div>
-                                    </div>
-                                </form>
+                                    </div>                                
                             </div></td>
                     </tr>
                 </table>

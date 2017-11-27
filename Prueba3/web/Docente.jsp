@@ -36,17 +36,6 @@
             if (docente == null) {
                 response.sendRedirect("error.jsp");
             }
-
-            ArrayList<Seccion> secciones = (new ClasesConsultas().mostrarSeccion());
-            ArrayList<Seccion> seccionesProfe = new ArrayList<>();
-            for (Seccion xx : secciones) {
-                if (xx.getRutDocente() == docente.getRutDocente()) {
-                    seccionesProfe.add(xx);
-                }
-            }
-            ArrayList<Inasistencia> ArrayInasistencias = (new InasistenciaDAO().mostrarDatos());
-            ClasesConsultas consultaBD = new ClasesConsultas();
-
         %>
     </head>
     <body>
@@ -61,24 +50,7 @@
                 <li class="amber darken-3 black-text">Nombre: <%=docente.getPnombre() + " " + docente.getAppaterno() + " " + docente.getApmaterno()%></li>
                 <li class="amber darken-3 black-text">Rut: <%=docente.getRutDocente() + "-" + docente.getDvDocente()%></li>
             </ul>
-            <table class=" grey lighten-2">
-                    <tr class="amber darken-3">
-                        <th>Ramo</th>
-                        <th>Fecha</th>
-                        <th>Estado</th>
-                        <th>Accion</th>
-                    </tr>
-                    <% for (Inasistencia falta : ArrayInasistencias) {   %>
-                    <tr>
-                        <% for (Seccion seccionP:  seccionesProfe ) {
-                           if (falta.getIdSeccion().equals(seccionP.getIdSeccion())) { %>
-                           <th> <%=falta.getRutAlumno() %></th>  
-                              <% }                            
-                           }
-                        %>
-                    </tr>
-                    <% }%>
-                </table>     
+            
             </form>
         </div>       
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
