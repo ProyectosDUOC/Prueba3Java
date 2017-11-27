@@ -239,7 +239,51 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
         }
         return arrayInasistencias2;
     }
+    
+    
+    public ArrayList buscarSeccion(String seccion) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
 
+            Statement statement = connection.createStatement();
+
+            String consultaSQL = "SELECT * FROM inasistencia WHERE id_seccion='"+seccion+"'";
+
+            ResultSet results = statement.executeQuery(consultaSQL);
+
+            int idInasistencia;
+            int rutAlumno2; 
+            String idSeccion;
+            Date fecha;
+            int idEstadoi;
+            
+            /* 
+            id_inasistencia   INT NOT NULL AUTO_INCREMENT,
+            rut_alumno        INT NOT NULL,
+            id_seccion    VARCHAR(30) NOT NULL,
+            fecha             DATE,
+            id_estadoi        INT NOT NULL,
+            */
+            arrayInasistencias2.removeAll(arrayInasistencias2);
+            while (results.next()) {                
+                    idSeccion = results.getString("id_Seccion");
+                if (idSeccion.equals(seccion)) {
+                    rutAlumno2 = results.getInt("rut_alumno");
+                    idInasistencia = results.getInt("id_inasistencia");
+                    rutAlumno2 = results.getInt("rut_alumno");
+                    fecha = results.getDate("fecha");
+                    idEstadoi = results.getInt("id_estadoi");                
+                   arrayInasistencias2.add(new Inasistencia(idInasistencia, rutAlumno2, idSeccion, fecha, idEstadoi));
+            
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayInasistencias2;
+    }
     public ArrayList buscarNuevos(int rutAlumno) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
