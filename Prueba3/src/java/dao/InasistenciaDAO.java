@@ -66,6 +66,46 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
         return arrayInasistencias;
     }
 
+    public ArrayList mostrarInjustificadas() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String consultaSQL = "SELECT * FROM inasistencia where id_estadoi=0;";
+
+            ResultSet results = statement.executeQuery(consultaSQL);
+
+            int idInasistencia;
+            int rutAlumno; 
+            String idSeccion;
+            Date fecha;
+            int idEstadoi;
+            
+            /* 
+            id_inasistencia   INT NOT NULL AUTO_INCREMENT,
+            rut_alumno        INT NOT NULL,
+            id_seccion    VARCHAR(30) NOT NULL,
+            fecha             DATE,
+            id_estadoi        INT NOT NULL,
+            */
+            arrayInasistencias.removeAll(arrayInasistencias);
+            while (results.next()) {
+                idInasistencia = results.getInt("id_inasistencia");
+                rutAlumno = results.getInt("rut_alumno");
+                idSeccion = results.getString("id_Seccion");
+                fecha = results.getDate("fecha");
+                idEstadoi = results.getInt("id_estadoi");
+                
+                arrayInasistencias.add(new Inasistencia(idInasistencia, rutAlumno, idSeccion, fecha, idEstadoi));
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return arrayInasistencias;
+    }
     @Override
     public Inasistencia buscar(int idInasistencia) {
         Inasistencia obj = null;
