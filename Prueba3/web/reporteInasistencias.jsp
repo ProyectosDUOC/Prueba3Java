@@ -12,7 +12,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inasistencia por alumno</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
         <% ControlUsuario user = (ControlUsuario) session.getAttribute("usuario"); %>
         <% if (user == null) {
                 response.sendRedirect("error.jsp");
