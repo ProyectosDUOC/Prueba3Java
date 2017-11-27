@@ -63,7 +63,7 @@ public class CargarExcel extends HttpServlet {
                 else
                     continue;
                 
-                seccion = fila.getCell(1).getStringCellValue();
+                seccion = fila.getCell(2).getStringCellValue();
                 
                 try { fecha = fila.getCell(3).getDateCellValue(); }
                 catch (Exception ex) { break; }

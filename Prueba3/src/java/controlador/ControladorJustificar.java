@@ -35,20 +35,25 @@ public class ControladorJustificar extends HttpServlet {
             throws ServletException, IOException {
         
         String opcion = request.getParameter("opcion");
-        String motivo = request.getParameter("motivo");
+        String motivo = "";
         String glosa = request.getParameter("glosa");
         String idInasistencia = (String) request.getSession().getAttribute("inaActual");
         
+         String[] miselect = request.getParameterValues("motivo");
+                for (int i = 0; i < miselect.length; i++) {
+                   motivo = miselect[i];
+                }
+        
+        
         if(opcion.equals("Guardar")){
-            int idMotivo = Integer.parseInt(motivo);
+            int idMotivo = Integer.parseInt(motivo);     
             int idIna = Integer.parseInt(idInasistencia);
-            Date fechaEnvio = new Date();
-            Justificacion just = new Justificacion(idIna, fechaEnvio, idMotivo, glosa, 1, 1);
-            (new JustificacionDAO()).agregar(just);
-            Inasistencia ina = (new InasistenciaDAO()).buscar(idIna);
-            ina.setIdEstadoi(2);
-            (new InasistenciaDAO()).actualizar(ina);
-            response.sendRedirect("Alumno.jsp");
+            Date fecha = new Date();
+            glosa = fecha.toString()+ ": "+glosa;
+            (new JustificacionDAO()).actualizarJustificacion(idIna, idMotivo, glosa, 1);
+            (new InasistenciaDAO()).actualizarEnviadoAlumnos(idIna,2);   
+            
+            response.sendRedirect("Alumno.jsp");     
         }
         
     }

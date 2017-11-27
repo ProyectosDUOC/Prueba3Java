@@ -27,8 +27,8 @@
                     <td>Motivo:</td>
                     <td>
                         <select name="motivo"  required="required">
-                            <option value="" disabled selected>Motivo</option>                    
-                            <%                                ArrayList<Motivo> motivos = new ArrayList();
+                            <option value="" disabled selected>Seleccione un Motivo</option>                    
+                            <%  ArrayList<Motivo> motivos = new ArrayList();
                                 motivos = new ClasesConsultas().mostrarMotivos();
                                 for (Motivo mot : motivos) {
                                     if (mot.getIdMotivo() != 0) {

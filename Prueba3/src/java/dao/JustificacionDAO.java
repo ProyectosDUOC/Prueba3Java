@@ -167,7 +167,33 @@ public class JustificacionDAO implements GeneralJustificacionDAO {
 
         return results;
     }
+    public int actualizarJustificacion(int idInasistencia, int idMotivo, String glosa, int estadoJ) {
+        int results = 0;
 
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String agregarSQL = "UPDATE justificacion SET  id_motivo = " + idMotivo
+                    + ", glosa  = '" + glosa
+                    + "', id_estadoj = " + estadoJ
+                    + " where id_inasistencia = " + idInasistencia + ";";
+
+            results = statement.executeUpdate(agregarSQL);
+
+            connection.close();
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+
+        return results;
+    }
     private String formatter(Date fechaEnvio) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
