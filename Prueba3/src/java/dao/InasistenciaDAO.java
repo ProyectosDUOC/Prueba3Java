@@ -239,7 +239,7 @@ public class InasistenciaDAO implements GeneralInasistenciaDAO{
         }
         return arrayInasistencias2;
     }
-    
+     
     
     public ArrayList buscarSeccion(String seccion) {
         try {
