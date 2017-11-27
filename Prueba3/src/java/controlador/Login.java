@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession sesion = request.getSession();
+        HttpSession sesion = request.getSession(true);
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
         String opcion = request.getParameter("opcion");
@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
                     switch(tipousuario){
                         case 1:
                             sesion.setAttribute("tipoUsuario", "Alumno");
-                            response.sendRedirect("Alumno.jsp?");
+                            response.sendRedirect("Alumno.jsp");
                             break;
                         case 2:
                             sesion.setAttribute("tipoUsuario", "Docente");

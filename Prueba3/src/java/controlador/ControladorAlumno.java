@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author carlos
+ * @author Seba
  */
-public class ControladorDirector extends HttpServlet {
+public class ControladorAlumno extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,35 +30,15 @@ public class ControladorDirector extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String opcion = request.getParameter("Opcion");
-        
-        if(opcion.equalsIgnoreCase("Acceder"))
-        {
-            response.sendRedirect("reporteInasistencias.jsp");
-        }
-        if (opcion.equalsIgnoreCase("Checkeado por docente")) {
-            response.sendRedirect("reportesInaDocentes.jsp");
-        }
-        if (opcion.equalsIgnoreCase("Reporte por Semestre")) {
-            response.sendRedirect("reportesSemestrales.jsp");
-        }
-        
-        if(opcion.equals("Salir")){
-            request.getSession().invalidate();
-            response.sendRedirect("index.jsp");
-        }
-        
-        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorDirector</title>");            
+            out.println("<title>Servlet ControladorAlumno</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorDirector at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorAlumno at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

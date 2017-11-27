@@ -132,7 +132,7 @@ INSERT INTO detalle_seccion (id_seccion,rut_alumno,anio,semestre) VALUES('PEI110
 INSERT INTO estado_correo VALUES(1,'ENVIADO 1 VEZ');
 INSERT INTO estado_correo VALUES(2,'ENVIADO 2 VEZ');
 -- Se encarga de controlar de formal general la inasistencia (RF7)
-INSERT INTO estado_inasistencia VALUES(0,'subido');
+INSERT INTO estado_inasistencia VALUES(0,'Subido');
 INSERT INTO estado_inasistencia VALUES(1,'Enviado a los Alumnos');
 INSERT INTO estado_inasistencia VALUES(2,'Justificado por alumno');
 INSERT INTO estado_inasistencia VALUES(3,'Revisado por Docente');
