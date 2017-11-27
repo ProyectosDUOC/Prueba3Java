@@ -22,14 +22,10 @@
 
         <%
             ControlUsuario user = (ControlUsuario) session.getAttribute("usuario");
-            if (user == null) {
-                response.sendRedirect("error.jsp");
-            }
+            if (user == null) response.sendRedirect("error.jsp");
             int rutAlumno = user.getRutUsuario();
             Alumno alu = (new AlumnoDAO()).buscarDatos(rutAlumno);
-            if (alu == null) {
-                response.sendRedirect("error.jsp");
-            }
+            if (alu == null) response.sendRedirect("error.jsp");
             ArrayList<Inasistencia> faltas = (new InasistenciaDAO()).buscarRut(rutAlumno);
             ClasesConsultas consultaBD = new ClasesConsultas();
         %>
@@ -68,13 +64,9 @@
                                 value="j<%=falta.getIdInasistencia()%>"> 
                                 Justificar 
                             </button>
-                            <%}
-                            %>
+                            <% }%>
                         </td>   
-                        <%
-                            }
-                        %>
-
+                        <% } %>
                     </tr>
                     <% }%>
                 </table>    

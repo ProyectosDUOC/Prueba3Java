@@ -218,6 +218,38 @@ public class ClasesConsultas implements GeneralClasesConsultas {
         }
         return obj;
     }
+    
+    public ArrayList<Seccion> buscarSeccionesRut(int rut) {
+        ArrayList<Seccion> secciones = new ArrayList<Seccion>();
+        Seccion obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/instituto", "root", "");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM seccion WHERE rut_docente=" + rut + ";";
+            ResultSet results = statement.executeQuery(query);
+            int rutDocente;
+            String idSeccion, idRamo;
+            /*  id_seccion    VARCHAR(30) NOT NULL,
+                id_ramo       VARCHAR(30) NOT NULL,
+                rut_docente   INT NOT NULL*/
+            while (results.next()) {
+                
+                idSeccion = results.getString("id_seccion");
+                idRamo = results.getString("id_ramo");
+                rutDocente = results.getInt("rut_docente");
+                if (rutDocente == rut ) {
+                    obj = new Seccion(idSeccion, idRamo, rutDocente);
+                    secciones.add(obj);                    
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return secciones;
+    }
+    
     private ArrayList<TipoUsuario> arrayTipoUsarios = new ArrayList<>();
 
     @Override
