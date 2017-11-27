@@ -8,12 +8,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style1.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Subir Inasistencias</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <div class="marco">
+        <div class="container">
         <h1>Cargar Inasistencias</h1>
         <p>Subir archivo Excel (.xlsx) </p>
         <form action="CargarExcel" method="post" enctype="multipart/form-data">
@@ -23,5 +28,9 @@
         <div class="mensaje">${param.mensaje}</div>
         <a href="Coordinador.jsp"><button class="boton" type="button">Atras</button></a>
         </div>
+        
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
     </body>
 </html>
