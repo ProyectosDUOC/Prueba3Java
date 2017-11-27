@@ -52,7 +52,7 @@
                         </tr> 
                         <tr>
                             <td>
-                                <button class="btn-large waves-effect red waves-light " type="submit" namewaves="Opcion" value="Salir">
+                                <button class="btn-large waves-effect red waves-light " type="submit" name="Opcion" value="Salir">
                                     Salir <i class="material-icons right">exit_to_app</i>
                                 </button> 
                             </td>
