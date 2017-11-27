@@ -26,7 +26,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Docente</title>
-         <%
+        <%
             ControlUsuario user = (ControlUsuario) session.getAttribute("usuario");
             if (user == null) {
                 response.sendRedirect("error.jsp");
@@ -36,63 +36,32 @@
             if (docente == null) {
                 response.sendRedirect("error.jsp");
             }
-            
+
             ArrayList<Seccion> secciones = (new ClasesConsultas().mostrarSeccion());
             ArrayList<Seccion> seccionesProfe = new ArrayList<Seccion>();
-            for (Seccion xx: secciones) {
-                    if (xx.getRutDocente() == docente.getRutDocente()) {
-                           seccionesProfe.add(xx);
+            for (Seccion xx : secciones) {
+                if (xx.getRutDocente() == docente.getRutDocente()) {
+                    seccionesProfe.add(xx);
                 }
             }
-            
-         
+
+
         %>
     </head>
     <body>
-           <h1>Menu Alumno</h1>
+        <div class="container">
+            <h1 class="yellow darken-1 center-align">Docente</h1>
 
-        <form action="ControladorAlumno" method="post" >
-            <h2>Datos Alumno</h2>
-            <ul>
-                <li>Nombre: <%=alu.getPnombre() + " " + alu.getAppaterno() + " " + alu.getApmaterno()%></li>
-                <li>Rut: <%=rutAlumno + "-" + alu.getDvAlumno()%> </li>
-            </ul>
-            <table>
-                <tr>
-                    <th>Ramo</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
-                    <th>Accion</th>
-                </tr>
-                <% for (Inasistencia falta : faltas) {   %>
-                <tr>
-                    <%  if (falta.getIdEstadoi() != 0) {%>
-                    <td><%=falta.getIdSeccion()%></td>
-                    <td><%=falta.getFecha()%></td>
-                    <td><%=consultaBD.buscarEstadoInasistencia(falta.getIdEstadoi()).getNombreEstadoi()%></td>
-                    <td>
-                        <% if (falta.getIdEstadoi() == 1) {%>
-                        <button 
-                            class="btn waves-effect waves-light" 
-                            type="submit" 
-                            name="opcion" 
-                            value="j<%=falta.getIdInasistencia()%>"> 
-                            Justificar 
-                        </button>
-                        <%}
-                        %>
-                    </td>   
-                    <%
-                        }
-                    %>
-
-                </tr>
-                <% }%>
-            </table>
-            <button class="btn waves-effect waves-light" type="submit" name="opcion" value="Salir">
-                Salir
+            <button class="btn waves-effect waves-light red right" type="submit" name="opcion" value="Salir">
+                Cerrar Sesion
             </button>
-        </form>
+            <h3 class="black-text">Datos Alumno</h3>               
+            <ul>
+                <li class="amber darken-3 black-text">Nombre: <%=docente.getPnombre() + " " + docente.getAppaterno() + " " + alu.getApmaterno()%></li>
+                <li class="amber darken-3 black-text">Rut: <%=docente.getRutDocente() + "-" + docente.getDvDocente()%></li>
+            </ul>
+            <h1> <%=docente.getRutDocente()%> - <%=docente.getPnombre()%>  </h1>
+        </div>       
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
