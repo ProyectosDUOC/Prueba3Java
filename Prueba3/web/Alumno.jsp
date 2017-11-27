@@ -22,6 +22,7 @@
         Alumno alu = (new AlumnoDAO()).buscarDatos(rutAlumno);
         if(alu==null) response.sendRedirect("error.jsp");
         ArrayList<Inasistencia> faltas = (new InasistenciaDAO()).buscarRut(rutAlumno);
+        ClasesConsultas consultaBD = new ClasesConsultas();
         %>
     </head>
     <body>
@@ -37,23 +38,29 @@
                 <tr>
                     <th>Ramo</th>
                     <th>Fecha</th>
-                    <th>Motivo</th>
-                    <th>Glosa</th>
                     <th>Estado</th>
                     <th>Accion</th>
                 </tr>
                 <% for (Inasistencia falta : faltas) {   %>
                     <tr>
-                        <td>falta</td>
-                        <td>${row.fecha}</td>
-                        <td>${row.nombre_motivo}</td>
-                        <td>${row.glosa}</td>
-                        <td>${row.nombre_estadoi}</td>
-                        <td><input class="boton" type="submit" name="${row.id_inasistencia}" value="<${accionAlumno}" /></td>
+                        <td><%=falta.getIdSeccion()%></td>
+                        <td><%=falta.getFecha()%></td>
+                        <td><%=consultaBD.buscarEstadoInasistencia(falta.getIdEstadoi()).getNombreEstadoi() %></td>
+                        <td>
+                            <button 
+                                class="btn waves-effect waves-light" 
+                                type="submit" 
+                                name="opcion" 
+                                value="j<%=falta.getIdInasistencia()%>"> 
+                                Justificar 
+                            </button>
+                        </td>
                     </tr>
                 <% }%>
             </table>
-            <input class="boton" type="submit" name="opcion" value="Salir"/>
+            <button class="btn waves-effect waves-light" type="submit" name=“opcion" value="Salir">
+                Salir
+            </button>
         </form>
     </body>
 </html>
