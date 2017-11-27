@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Justificacion;
+
 
 /**
  *
@@ -52,6 +52,25 @@ public class ControladorJustificar extends HttpServlet {
             glosa = fecha.toString()+ ": "+glosa;
             (new JustificacionDAO()).actualizarJustificacion(idIna, idMotivo, glosa, 1);
             (new InasistenciaDAO()).actualizarEnviadoAlumnos(idIna,2);   
+            Inasistencia inasistencia = new InasistenciaDAO().buscar(idIna);
+            Seccion seccion = new ClasesConsultas().buscarSeccion(inasistencia.getIdSeccion());
+            Docente docente = new DocenteDAO().buscarDatos(seccion.getRutDocente());
+            
+            String asunto = "Inasistencia Justificada Por Alumno";
+            StringBuilder mensaje = new StringBuilder();                   
+                    mensaje.append("Estimado Profesor ");
+                    mensaje.append(docente.getPnombre());
+                    mensaje.append(" ");
+                    mensaje.append(docente.getAppaterno());
+                    mensaje.append("\n");
+                    mensaje.append(" Nuestro sistema aca de tener un registro de inasistencia por el alumno ");
+                    mensaje.append(" RUT: ");
+                    mensaje.append(inasistencia.getRutAlumno());
+                    mensaje.append(" de la Seecion ");
+                    mensaje.append(seccion);                    
+                    mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
+           
+            (new ControladorCorreo()).EnviarProfesor(docente.getEmail(), mensaje.toString(),asunto);
             
             response.sendRedirect("Alumno.jsp");     
         }
