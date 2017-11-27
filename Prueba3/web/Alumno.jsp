@@ -54,7 +54,7 @@
                         <th>Accion</th>
                     </tr>
                     <% for (Inasistencia falta : faltas) {   %>
-                    <tr>
+                    <tr>  
                         <%  if (falta.getIdEstadoi() != 0) {%>
                         <td><%=falta.getIdSeccion()%></td>
                         <td><%=falta.getFecha()%></td>

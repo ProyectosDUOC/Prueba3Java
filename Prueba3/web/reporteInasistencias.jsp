@@ -42,7 +42,7 @@
         
         <table border="1" class=" grey lighten-2">
             <thead>
-                <tr>
+                <tr class="amber darken-3 black-text">
                     <th>Rut Alumno</th> 
                     <th>Nombre Alumno</th>
                     <th>Fecha Inasistencia</th>
