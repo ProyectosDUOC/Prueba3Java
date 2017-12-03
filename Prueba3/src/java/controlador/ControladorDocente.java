@@ -39,7 +39,7 @@ public class ControladorDocente extends HttpServlet {
         
         if(opcion.charAt(0)=='j'){
             int idJust = Integer.parseInt(opcion.substring(1));
-            response.sendRedirect("VerJustificion.jsp?id="+idJust);
+            response.sendRedirect("VerJustificacion.jsp?id="+idJust);
         }
     }
 

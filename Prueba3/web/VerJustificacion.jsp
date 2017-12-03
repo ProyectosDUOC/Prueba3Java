@@ -12,7 +12,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Justificacion</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style1.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
 <%
@@ -38,10 +41,9 @@
                             <div class="row">                                
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea name="glosa" rows="10" cols="30" id="textarea1" class="materialize-textarea disabled" required="required">
+                                        <textarea disabled name="glosa" rows="10" cols="30" id="textarea1" class="materialize-textarea disabled" required="required">
                                             <%=justi.getGlosa()%>
                                         </textarea>
-                                        <label for="textarea1">Comente sus motivos</label>
                                     </div>
                                 </div>                                
                             </div>
@@ -51,7 +53,7 @@
                 <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Guardar">
                     Guardar
                 </button>
-                <a  class="white-text btn-large  waves-effect waves-light  red" href="Alumno.jsp">Volver</a>
+                <a  class="white-text btn-large  waves-effect waves-light  red" href="Docente.jsp">Volver</a>
 
             </form>
         </div>
