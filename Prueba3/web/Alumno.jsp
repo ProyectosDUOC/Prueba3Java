@@ -49,6 +49,10 @@
                         <th>Estado</th>
                         <th>Accion</th>
                     </tr>
+                    <% if (faltas.isEmpty()) {  %>
+                    <tr><td>No tienes registrado inasistecias para justificar<td></tr>
+                     <%   }
+                    %>
                     <% for (Inasistencia falta : faltas) {   %>
                     <tr>  
                         <%  if (falta.getIdEstadoi() != 0) {%>
