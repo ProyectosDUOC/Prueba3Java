@@ -4,6 +4,8 @@
     Author     : Seba
 --%>
 
+<%@page import="modelo.Motivo"%>
+<%@page import="dao.JustificacionDAO"%>
 <%@page import="modelo.Seccion"%>
 <%@page import="dao.DocenteDAO"%>
 <%@page import="modelo.Docente"%>
@@ -36,6 +38,7 @@
             if (docente == null) {
                 response.sendRedirect("error.jsp");
             }
+            AlumnoDAO alumnos= new AlumnoDAO();
             ClasesConsultas consultaBD = new ClasesConsultas();
             ArrayList<Seccion> secciones = consultaBD.buscarSeccionesRut(rutDocente);
             ArrayList<Inasistencia> faltas = new ArrayList();
@@ -65,25 +68,38 @@
                     <tr class="amber darken-3">
                         <th>Ramo</th>
                         <th>Fecha</th>
-                        <th>Estado</th>
+                        <th>Rut Alumno</th>
+                        <th>Motivo</th>
+                        <th>Estado</th>                        
                         <th>Accion</th>
                     </tr>
                     <% for (Inasistencia falta : faltas) {   %>
                     <tr>  
-                        <%  if (falta.getIdEstadoi() != 0) {%>
+                        <%  if (falta.getIdEstadoi() > 1) {%>
                         <td><%=falta.getIdSeccion()%></td>
                         <td><%=falta.getFecha()%></td>
+                        <td><%=falta.getRutAlumno()%>-<%=alumnos.buscarDatos(falta.getRutAlumno()).getDvAlumno()%>  </td>
+                        <td><%=consultaBD.buscarMotivos(((new JustificacionDAO()).buscarDatos(falta.getIdInasistencia())).getIdMotivo()).getNombreMotivo() %></td>
                         <td><%=consultaBD.buscarEstadoInasistencia(falta.getIdEstadoi()).getNombreEstadoi()%></td>
-                        <td>
+                         <td>
                             <% if(falta.getIdEstadoi()==2){%>
                                 <button 
                                  class="btn waves-effect waves-light indigo darken-3" 
                                  type="submit" 
                                  name="opcion" 
                                  value="j<%=falta.getIdInasistencia()%>"> 
-                                    ver Justificacion 
+                                    Aceptar Justificacion 
                                 </button>
-                            <% } %>
+                            <% }
+                               if(falta.getIdEstadoi()==3){ %>
+                                <button 
+                                 class="btn waves-effect waves-light  grey darken-1" 
+                                 type="submit" 
+                                 name="opcion" 
+                                 value="j<%=falta.getIdInasistencia()%>"> 
+                                     ver
+                                </button>
+                           <% }%>
                         </td>   
                         <% } %>
                     </tr>

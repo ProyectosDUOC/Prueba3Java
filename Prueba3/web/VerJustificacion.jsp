@@ -18,12 +18,13 @@
         <link href="css/style1.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     </head>
     <body>
-<%
+        <%
             String idInasistencia = request.getParameter("id");
             int idIna = Integer.parseInt(idInasistencia);
             session.setAttribute("inaActual", idInasistencia);
             Justificacion justi = (new JustificacionDAO()).buscarDatos(idIna);
             ClasesConsultas consultaDB = new ClasesConsultas();
+            Inasistencia ina = new InasistenciaDAO().buscar(Integer.parseInt(idInasistencia));
         %>
         <div class="container">
             <form action="ControladorJustificar" method="post">
@@ -41,20 +42,23 @@
                             <div class="row">                                
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea disabled name="glosa" rows="10" cols="30" id="textarea1" class="materialize-textarea disabled" required="required">
-                                            <%=justi.getGlosa()%>
-                                        </textarea>
+                                        <%=justi.getGlosa()%>                                        
                                     </div>
                                 </div>                                
                             </div>
                         </td>
-                    </tr>
-                </table>
-                <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Guardar">
-                    Guardar
-                </button>
-                <a  class="white-text btn-large  waves-effect waves-light  red" href="Docente.jsp">Volver</a>
+                        <%if (ina.getIdEstadoi() == 2) { %>
+                        <td> <button class="btn-large waves-effect waves-light amber lighten-1" type="submit" name="opcion" value="Justificar">
+                                Aceptar Justificación
+                            </button></td>
+                            <%
+                                }
+                            %>
 
+                    </tr>
+
+                </table>                
+                <a  class="white-text btn-large  waves-effect waves-light  red" href="Docente.jsp">Volver</a>
             </form>
         </div>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
