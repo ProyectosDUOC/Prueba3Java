@@ -34,17 +34,19 @@ En un estudio realizado, se envió correos a 100  alumnos preguntando el por qu�
 
 ### Tabla 1. Problemas de inasistencia
 Problema	Cantidad de alumnos
-*       Económicos	15
-*       Salud	15
-*       Laboral	15
-*       Trámites	5
-*       No entiendo la materia	10
-*       No le entiendo al profesor	10
-*       Me quedé dormido	10
-*       Problemas familiares varios	5
-*       Problema con el transporte	10
-*       Actividad extra programática del instituto 	5
 
+| Nombre | Cantidad de alumnos |
+| -- | -- | 
+| Económicos |	15 |
+| Salud |	15 |
+| Laboral |	15 |
+| Trámites	| 5 |
+| No entiendo la materia |	10 |
+| No le entiendo al profesor |	10 |
+| Me quedé dormido |	10 |
+| Problemas familiares varios |	5 |
+| Problema con el transporte |	10 | 
+| Actividad extra programática del instituto |	5 |
     
 # Requerimientos Funcionales
 + RF1	Cargar la tabla inasistencias desde un archivo de entrada de datos en Excel. ✓
