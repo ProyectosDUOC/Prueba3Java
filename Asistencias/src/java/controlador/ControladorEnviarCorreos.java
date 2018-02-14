@@ -36,7 +36,7 @@ public class ControladorEnviarCorreos extends HttpServlet {
         
         String opcion = request.getParameter("opcion");
         
-        if(opcion.equals("Enviar")){
+        if(opcion.equals("Enviar")){  
             InasistenciaDAO faltas = new InasistenciaDAO();
             ArrayList<Inasistencia> faltasAlumno;           
             ArrayList<Alumno> arrayAlumnos = new AlumnoDAO().mostrarDatos();
@@ -59,7 +59,7 @@ public class ControladorEnviarCorreos extends HttpServlet {
                     mensaje.append(" ");
                     mensaje.append(alumno.getAppaterno());
                     mensaje.append("\n");
-                    mensaje.append(" Nuestro sistema registra que usted tiene inasistencias,");
+                    mensaje.append("Nuestro sistema registra que usted tiene inasistencias,");
                     mensaje.append(" favor de dirigirse al sitio www.miinasistencia.cl y justificarlas.\n");
 
                     for (Inasistencia falta : faltasAlumno) {
@@ -78,17 +78,7 @@ public class ControladorEnviarCorreos extends HttpServlet {
                     ControladorCorreo.Enviar(correo, pass, alumno.getEmail(), asunto, mensaje.toString());
                 }
             }
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet ControladorDirector</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Correos enviados exitosamente</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+            response.sendRedirect("enviarCorreos.jsp?mensaje=Correos Enviados Existosamente");            
         }
         
     }

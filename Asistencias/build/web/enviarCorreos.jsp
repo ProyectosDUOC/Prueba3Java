@@ -17,26 +17,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Enviar Correos</title>
     </head>
-    <body>
-        
+    <body>        
         <div class="container">
-            <h1 class="indigo darken-3 center-align black-text">Enviar Correos</h1>
-            <form method="post" action="ControladorEnviarCorreos">
-
-                <table border="1">
-                    <tr>
-                        <td>
-                            <p>Clic para enviar correos</p>
-                            <button class="btn-large waves-effect waves-light" type="submit" name="opcion" value="Enviar">Enviar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a  class="white-text btn-large  waves-effect waves-light  red" href="Coordinador.jsp">Volver</a>
-                        </td>
-                    </tr>
-                </table>    
-            </form>
+            <h1 class="yellow darken-1 center-align">Enviar Correos</h1>
+            <div class="col s12 m4 l8">
+                <form method="post" action="ControladorEnviarCorreos">
+                    <table border="1">
+                        <tr>
+                            <td>                                                          
+                                <p class="red-text"><strong>Clic para enviar correos</strong></p>
+                                <button class="btn-large waves-effect waves-light yellow black-text" type="submit" name="opcion" value="Enviar">Enviar</button>
+                            </td>
+                            <span id="mensaje"> ${param.mensaje}</span>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a  class="white-text btn-large  waves-effect waves-light  red" href="Coordinador.jsp">Volver</a>
+                            </td>
+                        </tr>
+                    </table>                  
+                </form>
+            </div>
         </div>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
