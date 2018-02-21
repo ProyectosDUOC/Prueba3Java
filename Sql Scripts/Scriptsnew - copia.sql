@@ -148,14 +148,6 @@ CREATE TABLE tipo_usuario (
     tipou_nombre      VARCHAR(30)
 );
 
-CREATE TABLE inasistencia_imagen(
-	id_inasistencia INT NOT NULL,
-	nombre_imagen VARCHAR(30),
-	imagen MEDIUMBLOB,
-	descripcion VARCHAR(30),
-	PRIMARY KEY(id_inasistencia)
-);
-
 ALTER TABLE tipo_usuario ADD CONSTRAINT tipo_usuario_pk PRIMARY KEY ( id_tipo_usuario );
 
 ALTER TABLE alumno
